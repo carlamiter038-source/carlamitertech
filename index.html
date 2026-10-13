@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="pageTitle">Carla Miter Tech - Portfólio, Serviços & Produtos</title>
+
+<!-- Metatag do Google AdSense -->
+<meta name="google-adsense-account" content="ca-pub-2941217546237733">
+
+<!-- Metatags para Indexação e Aparição no Google -->
+<meta name="description" content="Carla Miter Tech - Soluções computacionais, desenvolvimento web, sistemas sob medida, planilhas e assessoria para abertura de MEI.">
+<meta name="robots" content="index, follow">
+
 <!-- Fontes do Google -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -870,7 +878,7 @@
         insta: "@carlamiter",
         pix: "carlapemi@outlook.com",
         vision: "focada em criar soluções simples, acessíveis e funcionais para o dia a dia. Estou sempre em constante atualização e acompanhando as tendências da área de tecnologia.",
-        photo: "Foto.jpg"// <---Ajustado com F maiúsculo para bater com o arquivo
+        photo: "Foto.jpg"
     };
 
     const mediaList = [
@@ -913,7 +921,7 @@
         document.getElementById('displayHeroTitle').innerText = siteInfo.name;
         document.getElementById('displayHeroSubtitle').innerText = siteInfo.subtitle;
         document.getElementById('displayVisionText').innerText = siteInfo.vision;
-        document.getElementById('displayProfilePhoto').src = siteInfo.photo; // <--- Carrega a foto dinamicamente
+        document.getElementById('displayProfilePhoto').src = siteInfo.photo;
         document.getElementById('displayContactPhone').innerText = siteInfo.phoneFormatted;
         document.getElementById('displayContactEmail').innerText = siteInfo.email;
         document.getElementById('displayContactInsta').innerText = siteInfo.insta;
@@ -1030,4 +1038,4 @@
     });
 </script>
 </body>
-</html> 
+</html>

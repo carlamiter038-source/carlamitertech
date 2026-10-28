@@ -555,6 +555,145 @@
         line-height: 1.6;
     }
 
+    /* Botão Flutuante de Configuração / Admin */
+    .floating-admin-btn {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        background-color: #ffffff;
+        color: #000000;
+        border: none;
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        cursor: pointer;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+        z-index: 1500;
+        transition: transform 0.3s ease;
+    }
+
+    .floating-admin-btn:hover {
+        transform: scale(1.1);
+    }
+
+    /* Painel Administrativo */
+    #adminPanel {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 2500;
+        overflow-y: auto;
+        padding: 40px 20px;
+    }
+
+    .admin-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #141414;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 16px;
+        padding: 30px;
+        color: #f3f3f3;
+    }
+
+    .admin-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 15px;
+    }
+
+    .admin-header h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.8rem;
+    }
+
+    .admin-close {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 1.8rem;
+        cursor: pointer;
+    }
+
+    .admin-section-box {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .admin-section-box h4 {
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+        color: #fff;
+    }
+
+    .admin-form-group {
+        margin-bottom: 12px;
+    }
+
+    .admin-form-group label {
+        display: block;
+        font-size: 0.85rem;
+        color: #bbb;
+        margin-bottom: 5px;
+    }
+
+    .admin-form-group input, .admin-form-group textarea {
+        width: 100%;
+        padding: 10px;
+        background: #0a0a0a;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 6px;
+        color: #fff;
+        font-size: 0.95rem;
+    }
+
+    .admin-form-group textarea {
+        resize: vertical;
+        height: 80px;
+    }
+
+    .admin-btn {
+        background-color: #fff;
+        color: #000;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 20px;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        margin-top: 10px;
+    }
+
+    .admin-btn-danger {
+        background-color: #e74c3c;
+        color: #fff;
+    }
+
+    .admin-item-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.4);
+        padding: 10px 15px;
+        border-radius: 6px;
+        margin-bottom: 8px;
+    }
+
     /* Modais */
     .modal {
         display: none;
@@ -704,32 +843,7 @@
     <h3 class="section-title">Tecnologias e Ferramentas</h3>
     <p class="section-subtitle">Conhecimentos técnicos, serviços digitais e especialidades:</p>
 
-    <div class="skills-grid">
-        <div class="skill-card">
-            <h4>Abertura de MEI</h4>
-            <p>Especialista em Abertura de MEI para autônomos e empreendedores.</p>
-        </div>
-        <div class="skill-card">
-            <h4>Linguagens & Web</h4>
-            <p>HTML5, CSS3, JavaScript.</p>
-        </div>
-        <div class="skill-card">
-            <h4>Ferramentas de Escritório/Produtividade</h4>
-            <p>LibreOffice Calc/Writer, Excel avançado, criação de PDFs interativos.</p>
-        </div>
-        <div class="skill-card">
-            <h4>Hospedagem & Controle de Versão</h4>
-            <p>Git, GitHub, Vercel.</p>
-        </div>
-        <div class="skill-card">
-            <h4>Cartões de Visita Digitais & Links de Bio</h4>
-            <p>Criação e adaptação em PWA/HTML simples. Monte um cartão de visita interativo para celular.</p>
-        </div>
-        <div class="skill-card">
-            <h4>Digitalização de Documentos e Tabelas</h4>
-            <p>Para pessoas e pequenas empresas. Serviço de converter papéis/cadernos/anotações em uma planilha limpa, automatizada com fórmulas e pronta para impressão.</p>
-        </div>
-    </div>
+    <div class="skills-grid" id="skillsGrid"></div>
 </section>
 
 <!-- Seção: Mídias & Destaques -->
@@ -796,20 +910,7 @@
     <h2 class="section-title">Institucional</h2>
     <p class="section-subtitle">Nossos pilares fundamentais, visão de trabalho e compromisso com os clientes.</p>
 
-    <div class="inst-grid">
-        <div class="inst-card">
-            <h4>Missão</h4>
-            <p>Oferecer suporte tecnológico e soluções digitais acessíveis, ajudando pequenos negócios e autônomos a se estruturarem e crescerem com facilidade.</p>
-        </div>
-        <div class="inst-card">
-            <h4>Visão</h4>
-            <p>Ser referência em soluções computacionais simples, funcionais e humanizadas, unindo tecnologia, design e visão contábil prática.</p>
-        </div>
-        <div class="inst-card">
-            <h4>Valores</h4>
-            <p>Transparência, constante atualização técnica, simplicidade, ética profissional e respeito absoluto aos dados de cada cliente.</p>
-        </div>
-    </div>
+    <div class="inst-grid" id="instGrid"></div>
 </section>
 
 <!-- MODAIS INFORMATIVOS -->
@@ -886,9 +987,95 @@
     </div>
 </footer>
 
+<!-- BOTÃO FLUTUANTE DE CONFIGURAÇÃO (ADMIN) -->
+<button class="floating-admin-btn" onclick="solicitarSenhaAdmin()" title="Painel Administrativo">⚙️</button>
+
+<!-- PAINEL ADMINISTRATIVO -->
+<div id="adminPanel">
+    <div class="admin-container">
+        <div class="admin-header">
+            <h3>Painel Administrativo (CMS)</h3>
+            <button class="admin-close" onclick="fecharAdmin()">&times;</button>
+        </div>
+
+        <!-- 1. Informações Gerais -->
+        <div class="admin-section-box">
+            <h4>Informações Gerais do Site</h4>
+            <div class="admin-form-group">
+                <label>Nome / Marca:</label>
+                <input type="text" id="admName">
+            </div>
+            <div class="admin-form-group">
+                <label>Subtítulo / Apresentação:</label>
+                <textarea id="admSubtitle"></textarea>
+            </div>
+            <div class="admin-form-group">
+                <label>Visão da Técnica:</label>
+                <textarea id="admVision"></textarea>
+            </div>
+            <div class="admin-form-group">
+                <label>URL Foto de Perfil:</label>
+                <input type="text" id="admPhoto">
+            </div>
+            <div class="admin-form-group">
+                <label>Telefone / WhatsApp (ex: 5531975644571):</label>
+                <input type="text" id="admPhone">
+            </div>
+            <div class="admin-form-group">
+                <label>Telefone Formatado:</label>
+                <input type="text" id="admPhoneFormatted">
+            </div>
+            <div class="admin-form-group">
+                <label>E-mail:</label>
+                <input type="text" id="admEmail">
+            </div>
+            <div class="admin-form-group">
+                <label>Instagram (ex: @carlamiter):</label>
+                <input type="text" id="admInsta">
+            </div>
+            <div class="admin-form-group">
+                <label>Chave PIX:</label>
+                <input type="text" id="admPix">
+            </div>
+            <button class="admin-btn" onclick="salvarGerais()">Salvar Alterações Gerais</button>
+        </div>
+
+        <!-- 2. Produtos -->
+        <div class="admin-section-box">
+            <h4>Gerenciar Produtos</h4>
+            <div id="adminProductsList"></div>
+            <hr style="border-color: rgba(255,255,255,0.1); margin: 15px 0;">
+            <h5 style="margin-bottom: 10px; font-size: 0.95rem;">Adicionar Novo Produto</h5>
+            <div class="admin-form-group"><label>Título:</label><input type="text" id="newProdTitle"></div>
+            <div class="admin-form-group"><label>Categoria:</label><input type="text" id="newProdCategory"></div>
+            <div class="admin-form-group"><label>Descrição:</label><textarea id="newProdDesc"></textarea></div>
+            <div class="admin-form-group"><label>Preço:</label><input type="text" id="newProdPrice"></div>
+            <div class="admin-form-group"><label>URL da Imagem (Opcional):</label><input type="text" id="newProdImage"></div>
+            <button class="admin-btn" onclick="adicionarProduto()">Adicionar Produto</button>
+        </div>
+
+        <!-- 3. Mídias -->
+        <div class="admin-section-box">
+            <h4>Gerenciar Destaques / Galeria</h4>
+            <div id="adminMediaList"></div>
+            <hr style="border-color: rgba(255,255,255,0.1); margin: 15px 0;">
+            <h5 style="margin-bottom: 10px; font-size: 0.95rem;">Adicionar Nova Mídia</h5>
+            <div class="admin-form-group"><label>Título:</label><input type="text" id="newMediaTitle"></div>
+            <div class="admin-form-group"><label>URL da Imagem:</label><input type="text" id="newMediaUrl"></div>
+            <div class="admin-form-group"><label>Descrição:</label><textarea id="newMediaDesc"></textarea></div>
+            <button class="admin-btn" onclick="adicionarMidia()">Adicionar Mídia</button>
+        </div>
+
+        <!-- Restaurar Padrões -->
+        <div style="text-align: right; margin-top: 20px;">
+            <button class="admin-btn admin-btn-danger" onclick="restaurarPadroes()">Restaurar Dados Padrão</button>
+        </div>
+    </div>
+</div>
+
 <script>
-    /* --- DADOS ESTÁTICOS DO SITE --- */
-    const siteInfo = {
+    /* --- DADOS INICIAIS / PADRÃO --- */
+    const defaultSiteInfo = {
         name: "Carla Miter Tech",
         subtitle: "Técnica de Sistemas, Contadora Parceira & Designer na Empresa. Soluções computacionais e desenvolvimento web sob medida.",
         phone: "5531975644571",
@@ -900,7 +1087,7 @@
         photo: "Foto.jpg"
     };
 
-    const mediaList = [
+    const defaultMediaList = [
         {
             id: 101,
             title: "Demonstração de Sistemas e PWAs",
@@ -910,7 +1097,7 @@
         }
     ];
 
-    const products = [
+    const defaultProducts = [
         {
             id: 1,
             title: "App Web Táxify",
@@ -934,6 +1121,26 @@
             price: "A partir de R$ 39,90"
         }
     ];
+
+    const skills = [
+        { title: "Abertura de MEI", desc: "Especialista em Abertura de MEI para autônomos e empreendedores." },
+        { title: "Linguagens & Web", desc: "HTML5, CSS3, JavaScript." },
+        { title: "Ferramentas de Escritório/Produtividade", desc: "LibreOffice Calc/Writer, Excel avançado, criação de PDFs interativos." },
+        { title: "Hospedagem & Controle de Versão", desc: "Git, GitHub, Vercel." },
+        { title: "Cartões de Visita Digitais & Links de Bio", desc: "Criação e adaptação em PWA/HTML simples. Monte um cartão de visita interativo para celular." },
+        { title: "Digitalização de Documentos e Tabelas", desc: "Para pessoas e pequenas empresas. Serviço de converter papéis/cadernos/anotações em uma planilha limpa, automatizada com fórmulas e pronta para impressão." }
+    ];
+
+    const institucional = [
+        { title: "Missão", desc: "Oferecer suporte tecnológico e soluções digitais acessíveis, ajudando pequenos negócios e autônomos a se estruturarem e crescerem com facilidade." },
+        { title: "Visão", desc: "Ser referência em soluções computacionais simples, funcionais e humanizadas, unindo tecnologia, design e visão contábil prática." },
+        { title: "Valores", desc: "Transparência, constante atualização técnica, simplicidade, ética profissional e respeito absoluto aos dados de cada cliente." }
+    ];
+
+    /* --- CARREGAMENTO DE DADOS DO LOCALSTORAGE --- */
+    let siteInfo = JSON.parse(localStorage.getItem('cm_siteInfo')) || defaultSiteInfo;
+    let mediaList = JSON.parse(localStorage.getItem('cm_mediaList')) || defaultMediaList;
+    let products = JSON.parse(localStorage.getItem('cm_products')) || defaultProducts;
 
     function renderSiteInfo() {
         document.getElementById('pageTitle').innerText = `${siteInfo.name} - Portfólio, Serviços & Produtos`;
@@ -961,6 +1168,32 @@
         document.getElementById('displayServiceQuoteBtn').href = `https://wa.me/${rawPhone}?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20personalizado.`;
     }
 
+    function renderSkills() {
+        const grid = document.getElementById('skillsGrid');
+        grid.innerHTML = '';
+        skills.forEach(s => {
+            grid.innerHTML += `
+                <div class="skill-card">
+                    <h4>${s.title}</h4>
+                    <p>${s.desc}</p>
+                </div>
+            `;
+        });
+    }
+
+    function renderInstitucional() {
+        const grid = document.getElementById('instGrid');
+        grid.innerHTML = '';
+        institucional.forEach(i => {
+            grid.innerHTML += `
+                <div class="inst-card">
+                    <h4>${i.title}</h4>
+                    <p>${i.desc}</p>
+                </div>
+            `;
+        });
+    }
+
     function renderMedia() {
         const grid = document.getElementById('mediaGrid');
         grid.innerHTML = '';
@@ -973,11 +1206,8 @@
         mediaList.forEach(m => {
             const card = document.createElement('div');
             card.className = 'media-card';
-
-            let contentHtml = `<img src="${m.url}" alt="${m.title}" loading="lazy">`;
-
             card.innerHTML = `
-                <div class="media-container">${contentHtml}</div>
+                <div class="media-container"><img src="${m.url}" alt="${m.title}" loading="lazy"></div>
                 <div class="media-info">
                     <h4>${m.title}</h4>
                     ${m.desc ? `<p>${m.desc}</p>` : ''}
@@ -1025,6 +1255,154 @@
         });
     }
 
+    /* --- AUTENTICAÇÃO E PAINEL ADMINISTRATIVO --- */
+    function solicitarSenhaAdmin() {
+        const senha = prompt("Digite a senha de acesso ao painel administrativo:");
+        if (senha === "312707") {
+            abrirAdmin();
+        } else if (senha !== null) {
+            alert("Senha incorreta!");
+        }
+    }
+
+    function abrirAdmin() {
+        document.getElementById('admName').value = siteInfo.name;
+        document.getElementById('admSubtitle').value = siteInfo.subtitle;
+        document.getElementById('admVision').value = siteInfo.vision;
+        document.getElementById('admPhoto').value = siteInfo.photo;
+        document.getElementById('admPhone').value = siteInfo.phone;
+        document.getElementById('admPhoneFormatted').value = siteInfo.phoneFormatted;
+        document.getElementById('admEmail').value = siteInfo.email;
+        document.getElementById('admInsta').value = siteInfo.insta;
+        document.getElementById('admPix').value = siteInfo.pix;
+
+        renderAdminLists();
+        document.getElementById('adminPanel').style.display = 'block';
+    }
+
+    function fecharAdmin() {
+        document.getElementById('adminPanel').style.display = 'none';
+    }
+
+    function salvarGerais() {
+        siteInfo.name = document.getElementById('admName').value;
+        siteInfo.subtitle = document.getElementById('admSubtitle').value;
+        siteInfo.vision = document.getElementById('admVision').value;
+        siteInfo.photo = document.getElementById('admPhoto').value;
+        siteInfo.phone = document.getElementById('admPhone').value;
+        siteInfo.phoneFormatted = document.getElementById('admPhoneFormatted').value;
+        siteInfo.email = document.getElementById('admEmail').value;
+        siteInfo.insta = document.getElementById('admInsta').value;
+        siteInfo.pix = document.getElementById('admPix').value;
+
+        localStorage.setItem('cm_siteInfo', JSON.stringify(siteInfo));
+        renderSiteInfo();
+        alert("Informações gerais atualizadas com sucesso!");
+    }
+
+    function renderAdminLists() {
+        // Produtos
+        const pList = document.getElementById('adminProductsList');
+        pList.innerHTML = '';
+        products.forEach(p => {
+            pList.innerHTML += `
+                <div class="admin-item-row">
+                    <span>${p.title} (${p.category})</span>
+                    <button class="admin-btn admin-btn-danger" style="margin:0; padding:6px 12px; font-size:0.75rem;" onclick="removerProduto(${p.id})">Excluir</button>
+                </div>
+            `;
+        });
+
+        // Mídias
+        const mList = document.getElementById('adminMediaList');
+        mList.innerHTML = '';
+        mediaList.forEach(m => {
+            mList.innerHTML += `
+                <div class="admin-item-row">
+                    <span>${m.title}</span>
+                    <button class="admin-btn admin-btn-danger" style="margin:0; padding:6px 12px; font-size:0.75rem;" onclick="removerMidia(${m.id})">Excluir</button>
+                </div>
+            `;
+        });
+    }
+
+    function adicionarProduto() {
+        const title = document.getElementById('newProdTitle').value;
+        const category = document.getElementById('newProdCategory').value;
+        const desc = document.getElementById('newProdDesc').value;
+        const price = document.getElementById('newProdPrice').value;
+        const image = document.getElementById('newProdImage').value;
+
+        if (!title || !price) {
+            alert("Preencha pelo menos o Título e o Preço.");
+            return;
+        }
+
+        const newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
+        products.push({ id: newId, title, category, desc, price, image });
+        
+        localStorage.setItem('cm_products', JSON.stringify(products));
+        renderProducts();
+        renderAdminLists();
+
+        document.getElementById('newProdTitle').value = '';
+        document.getElementById('newProdCategory').value = '';
+        document.getElementById('newProdDesc').value = '';
+        document.getElementById('newProdPrice').value = '';
+        document.getElementById('newProdImage').value = '';
+        alert("Produto adicionado com sucesso!");
+    }
+
+    function removerProduto(id) {
+        if (confirm("Deseja realmente excluir este produto?")) {
+            products = products.filter(p => p.id !== id);
+            localStorage.setItem('cm_products', JSON.stringify(products));
+            renderProducts();
+            renderAdminLists();
+        }
+    }
+
+    function adicionarMidia() {
+        const title = document.getElementById('newMediaTitle').value;
+        const url = document.getElementById('newMediaUrl').value;
+        const desc = document.getElementById('newMediaDesc').value;
+
+        if (!title || !url) {
+            alert("Preencha o Título e a URL da Imagem.");
+            return;
+        }
+
+        const newId = mediaList.length > 0 ? Math.max(...mediaList.map(m => m.id)) + 1 : 1;
+        mediaList.push({ id: newId, title, type: 'image', url, desc });
+
+        localStorage.setItem('cm_mediaList', JSON.stringify(mediaList));
+        renderMedia();
+        renderAdminLists();
+
+        document.getElementById('newMediaTitle').value = '';
+        document.getElementById('newMediaUrl').value = '';
+        document.getElementById('newMediaDesc').value = '';
+        alert("Mídia adicionada com sucesso!");
+    }
+
+    function removerMidia(id) {
+        if (confirm("Deseja realmente excluir esta mídia?")) {
+            mediaList = mediaList.filter(m => m.id !== id);
+            localStorage.setItem('cm_mediaList', JSON.stringify(mediaList));
+            renderMedia();
+            renderAdminLists();
+        }
+    }
+
+    function restaurarPadroes() {
+        if (confirm("Tem certeza que deseja restaurar todos os dados para o padrão original? Suas alterações serão perdidas.")) {
+            localStorage.removeItem('cm_siteInfo');
+            localStorage.removeItem('cm_mediaList');
+            localStorage.removeItem('cm_products');
+            location.reload();
+        }
+    }
+
     /* --- INTEGRAÇÃO COM API DE CHECKOUT --- */
     async function iniciarCompra(productId) {
         try {
@@ -1064,6 +1442,8 @@
     // Inicialização do site
     document.addEventListener('DOMContentLoaded', () => {
         renderSiteInfo();
+        renderSkills();
+        renderInstitucional();
         renderMedia();
         renderProducts();
     });

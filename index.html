@@ -651,7 +651,7 @@
         margin-bottom: 5px;
     }
 
-    .admin-form-group input, .admin-form-group textarea {
+    .admin-form-group input, .admin-form-group textarea, .admin-form-group select {
         width: 100%;
         padding: 10px;
         background: #0a0a0a;
@@ -960,7 +960,7 @@
         <span class="close-modal" onclick="closeModal('centralPrivacidadeModal')">&times;</span>
         <h4>Central de Privacidade</h4>
         <p>Aqui você pode exercer seus direitos referentes aos seus dados pessoais de acordo com a LGPD.</p>
-        <p>Você tem o direito de solicitar a confirmação, o acesso, a correção ou a exclusão completa dos seus dados de nossos registros de atendimento. Entre em contato conosco via e-mail.</p>
+        <p>Você tiene o direito de solicitar a confirmação, o acesso, a correção ou a exclusão completa dos seus dados de nossos registros de atendimento. Entre em contato conosco via e-mail.</p>
     </div>
 </div>
 
@@ -1014,8 +1014,8 @@
                 <textarea id="admVision"></textarea>
             </div>
             <div class="admin-form-group">
-                <label>URL Foto de Perfil:</label>
-                <input type="text" id="admPhoto">
+                <label>Alterar Foto de Perfil (Escolha do Computador):</label>
+                <input type="file" id="admPhotoFile" accept="image/*">
             </div>
             <div class="admin-form-group">
                 <label>Telefone / WhatsApp (ex: 5531975644571):</label>
@@ -1049,8 +1049,20 @@
             <div class="admin-form-group"><label>Título:</label><input type="text" id="newProdTitle"></div>
             <div class="admin-form-group"><label>Categoria:</label><input type="text" id="newProdCategory"></div>
             <div class="admin-form-group"><label>Descrição:</label><textarea id="newProdDesc"></textarea></div>
-            <div class="admin-form-group"><label>Preço:</label><input type="text" id="newProdPrice"></div>
-            <div class="admin-form-group"><label>URL da Imagem (Opcional):</label><input type="text" id="newProdImage"></div>
+            
+            <div class="admin-form-group">
+                <label>Tipo de Preço:</label>
+                <select id="newProdPriceType" onchange="togglePriceInput()">
+                    <option value="custom">Valor específico (Ex: R$ 97,00)</option>
+                    <option value="consulte">Consulte / Adquira</option>
+                </select>
+            </div>
+            <div class="admin-form-group" id="customPriceGroup">
+                <label>Valor do Preço:</label>
+                <input type="text" id="newProdPrice" placeholder="Ex: R$ 97,00">
+            </div>
+
+            <div class="admin-form-group"><label>Foto do Produto (Escolher arquivo):</label><input type="file" id="newProdImageFile" accept="image/*"></div>
             <button class="admin-btn" onclick="adicionarProduto()">Adicionar Produto</button>
         </div>
 
@@ -1061,7 +1073,7 @@
             <hr style="border-color: rgba(255,255,255,0.1); margin: 15px 0;">
             <h5 style="margin-bottom: 10px; font-size: 0.95rem;">Adicionar Nova Mídia</h5>
             <div class="admin-form-group"><label>Título:</label><input type="text" id="newMediaTitle"></div>
-            <div class="admin-form-group"><label>URL da Imagem:</label><input type="text" id="newMediaUrl"></div>
+            <div class="admin-form-group"><label>Foto / Imagem (Escolher arquivo):</label><input type="file" id="newMediaFile" accept="image/*"></div>
             <div class="admin-form-group"><label>Descrição:</label><textarea id="newMediaDesc"></textarea></div>
             <button class="admin-btn" onclick="adicionarMidia()">Adicionar Mídia</button>
         </div>
@@ -1269,7 +1281,6 @@
         document.getElementById('admName').value = siteInfo.name;
         document.getElementById('admSubtitle').value = siteInfo.subtitle;
         document.getElementById('admVision').value = siteInfo.vision;
-        document.getElementById('admPhoto').value = siteInfo.photo;
         document.getElementById('admPhone').value = siteInfo.phone;
         document.getElementById('admPhoneFormatted').value = siteInfo.phoneFormatted;
         document.getElementById('admEmail').value = siteInfo.email;
@@ -1284,20 +1295,37 @@
         document.getElementById('adminPanel').style.display = 'none';
     }
 
+    function togglePriceInput() {
+        const type = document.getElementById('newProdPriceType').value;
+        const group = document.getElementById('customPriceGroup');
+        group.style.display = type === 'custom' ? 'block' : 'none';
+    }
+
     function salvarGerais() {
         siteInfo.name = document.getElementById('admName').value;
         siteInfo.subtitle = document.getElementById('admSubtitle').value;
         siteInfo.vision = document.getElementById('admVision').value;
-        siteInfo.photo = document.getElementById('admPhoto').value;
         siteInfo.phone = document.getElementById('admPhone').value;
         siteInfo.phoneFormatted = document.getElementById('admPhoneFormatted').value;
         siteInfo.email = document.getElementById('admEmail').value;
         siteInfo.insta = document.getElementById('admInsta').value;
         siteInfo.pix = document.getElementById('admPix').value;
 
-        localStorage.setItem('cm_siteInfo', JSON.stringify(siteInfo));
-        renderSiteInfo();
-        alert("Informações gerais atualizadas com sucesso!");
+        const fileInput = document.getElementById('admPhotoFile');
+        if (fileInput.files && fileInput.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                siteInfo.photo = e.target.result;
+                localStorage.setItem('cm_siteInfo', JSON.stringify(siteInfo));
+                renderSiteInfo();
+                alert("Informações gerais e foto atualizadas com sucesso!");
+            };
+            reader.readAsDataURL(fileInput.files[0]);
+        } else {
+            localStorage.setItem('cm_siteInfo', JSON.stringify(siteInfo));
+            renderSiteInfo();
+            alert("Informações gerais atualizadas com sucesso!");
+        }
     }
 
     function renderAdminLists() {
@@ -1330,27 +1358,44 @@
         const title = document.getElementById('newProdTitle').value;
         const category = document.getElementById('newProdCategory').value;
         const desc = document.getElementById('newProdDesc').value;
-        const price = document.getElementById('newProdPrice').value;
-        const image = document.getElementById('newProdImage').value;
+        const priceType = document.getElementById('newProdPriceType').value;
+        const price = priceType === 'custom' ? document.getElementById('newProdPrice').value : "Consulte / Adquira";
 
-        if (!title || !price) {
-            alert("Preencha pelo menos o Título e o Preço.");
+        if (!title) {
+            alert("Preencha pelo menos o Título do produto.");
             return;
         }
 
+        const fileInput = document.getElementById('newProdImageFile');
         const newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
-        products.push({ id: newId, title, category, desc, price, image });
-        
-        localStorage.setItem('cm_products', JSON.stringify(products));
-        renderProducts();
-        renderAdminLists();
 
+        if (fileInput.files && fileInput.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                products.push({ id: newId, title, category, desc, price, image: e.target.result });
+                localStorage.setItem('cm_products', JSON.stringify(products));
+                renderProducts();
+                renderAdminLists();
+                limparFormProduto();
+                alert("Produto adicionado com sucesso!");
+            };
+            reader.readAsDataURL(fileInput.files[0]);
+        } else {
+            products.push({ id: newId, title, category, desc, price, image: "" });
+            localStorage.setItem('cm_products', JSON.stringify(products));
+            renderProducts();
+            renderAdminLists();
+            limparFormProduto();
+            alert("Produto adicionado com sucesso!");
+        }
+    }
+
+    function limparFormProduto() {
         document.getElementById('newProdTitle').value = '';
         document.getElementById('newProdCategory').value = '';
         document.getElementById('newProdDesc').value = '';
         document.getElementById('newProdPrice').value = '';
-        document.getElementById('newProdImage').value = '';
-        alert("Produto adicionado com sucesso!");
+        document.getElementById('newProdImageFile').value = '';
     }
 
     function removerProduto(id) {
@@ -1364,25 +1409,29 @@
 
     function adicionarMidia() {
         const title = document.getElementById('newMediaTitle').value;
-        const url = document.getElementById('newMediaUrl').value;
         const desc = document.getElementById('newMediaDesc').value;
+        const fileInput = document.getElementById('newMediaFile');
 
-        if (!title || !url) {
-            alert("Preencha o Título e a URL da Imagem.");
+        if (!title || !fileInput.files[0]) {
+            alert("Preencha o Título e escolha uma foto/imagem.");
             return;
         }
 
-        const newId = mediaList.length > 0 ? Math.max(...mediaList.map(m => m.id)) + 1 : 1;
-        mediaList.push({ id: newId, title, type: 'image', url, desc });
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const newId = mediaList.length > 0 ? Math.max(...mediaList.map(m => m.id)) + 1 : 1;
+            mediaList.push({ id: newId, title, type: 'image', url: e.target.result, desc });
 
-        localStorage.setItem('cm_mediaList', JSON.stringify(mediaList));
-        renderMedia();
-        renderAdminLists();
+            localStorage.setItem('cm_mediaList', JSON.stringify(mediaList));
+            renderMedia();
+            renderAdminLists();
 
-        document.getElementById('newMediaTitle').value = '';
-        document.getElementById('newMediaUrl').value = '';
-        document.getElementById('newMediaDesc').value = '';
-        alert("Mídia adicionada com sucesso!");
+            document.getElementById('newMediaTitle').value = '';
+            document.getElementById('newMediaDesc').value = '';
+            document.getElementById('newMediaFile').value = '';
+            alert("Mídia adicionada com sucesso!");
+        };
+        reader.readAsDataURL(fileInput.files[0]);
     }
 
     function removerMidia(id) {

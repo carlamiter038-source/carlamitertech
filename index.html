@@ -1117,9 +1117,9 @@
             <button class="bot-close-btn" onclick="toggleBotCard()">&times;</button>
         </div>
 
-        <!-- Palco da Foto Real -->
+        <!-- Palco da Foto Real (Atualizado com a nova imagem) -->
         <div class="bot-avatar-stage">
-            <img id="botAvatarImage" src="Foto.jpg" alt="Carla Miter">
+            <img id="botAvatarImage" src="1000385669.jpg" alt="Assistente Virtual">
         </div>
 
         <!-- Conteúdo do Chat -->
@@ -1145,10 +1145,10 @@
         </div>
     </div>
 
-    <!-- Botão Flutuante -->
+    <!-- Botão Flutuante (Atualizado com a nova imagem) -->
     <div class="bot-launcher" onclick="toggleBotCard()" title="Falar com a Assistente de TI">
         <div class="bot-launcher-badge"></div>
-        <img id="botLauncherImage" src="Foto.jpg" alt="Carla Miter">
+        <img id="botLauncherImage" src="1000385669.jpg" alt="Assistente Virtual">
     </div>
 </div>
 
@@ -1216,8 +1216,6 @@
         document.getElementById('displayHeroSubtitle').innerText = siteInfo.subtitle;
         document.getElementById('displayVisionText').innerText = siteInfo.vision;
         document.getElementById('displayProfilePhoto').src = siteInfo.photo;
-        document.getElementById('botAvatarImage').src = siteInfo.photo;
-        document.getElementById('botLauncherImage').src = siteInfo.photo;
         document.getElementById('displayContactPhone').innerText = siteInfo.phoneFormatted;
         document.getElementById('displayContactEmail').innerText = siteInfo.email;
         document.getElementById('displayContactInsta').innerText = siteInfo.insta;
@@ -1377,7 +1375,6 @@
 
         let responseText = "";
 
-        // Verificações gerais caso o usuário pergunte preço ou orçamento específico (Regra 1)
         const lowerVal = val.toLowerCase();
         if (lowerVal.includes('preço') || lowerVal.includes('quanto custa') || lowerVal.includes('valor') || lowerVal.includes('orçamento')) {
             responseText = "O especialista técnico poderá analisar o seu caso em detalhes na nossa reunião. Vamos agendar?";
@@ -1403,7 +1400,7 @@
         }
 
         appendMessage('bot', responseText);
-        speakText(responseText.replace(/<[^>]*>?/gm, '')); // Fala sem tags HTML
+        speakText(responseText.replace(/<[^>]*>?/gm, ''));
     }
 
     function speakText(text) {
@@ -1438,3 +1435,4 @@
 </script>
 </body>
 </html>
+

@@ -13,7 +13,7 @@
 <meta name="google-adsense-account" content="ca-pub-2941217546237733">
 
 <!-- METATAGS DE INDEXAÇÃO PARA BUSCA NO GOOGLE -->
-<meta name="description" content="Carla Miter Tech - Soluções computacionais, desenvolvimento web, sistemas sob medida, planilhas e assessoria para abertura de MEI.">
+<meta name="description" content="Carla Miter Tech - Soluções computacionais, desenvolvimento web, sistemas sob medida e assessoria para abertura de MEI.">
 <meta name="robots" content="index, follow">
 
 <!-- Fontes do Google -->
@@ -167,31 +167,39 @@
 
     .hero h1 {
         font-family: 'Playfair Display', serif;
-        font-size: 3.2rem;
+        font-size: 3rem;
         font-weight: 700;
-        margin-bottom: 8px;
+        margin-bottom: 15px;
         color: var(--text-primary);
         line-height: 1.2;
     }
 
     .hero h2 {
-        font-size: 1.25rem;
+        font-size: 1.15rem;
         color: var(--text-muted);
         font-weight: 300;
-    }
-
-    .tech-vision {
-        background-color: rgba(255, 255, 255, 0.9);
-        border-left: 3px solid #000000;
-        padding: 20px 24px;
-        border-radius: 0 12px 12px 0;
-        margin-bottom: 40px;
-    }
-
-    .tech-vision p {
-        color: #1a1a1a;
-        font-size: 1rem;
         line-height: 1.6;
+        margin-bottom: 30px;
+    }
+
+    .btn-hero-cta {
+        display: inline-block;
+        background-color: #25d366;
+        color: #ffffff;
+        padding: 14px 28px;
+        border-radius: 30px;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .btn-hero-cta:hover {
+        transform: translateY(-3px);
+        background-color: #20ba5a;
     }
 
     .section-title {
@@ -207,37 +215,41 @@
         font-size: 0.95rem;
     }
 
-    /* Skills Grid */
+    /* Skills / Serviços Grid */
     .skills-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
     }
 
     .skill-card {
         background-color: var(--bg-card);
         border: 1px solid var(--border-color);
-        padding: 24px;
-        border-radius: 12px;
+        padding: 30px;
+        border-radius: 16px;
         transition: all 0.3s ease;
         backdrop-filter: blur(8px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
     .skill-card:hover {
-        transform: translateY(-4px);
-        border-color: rgba(255, 255, 255, 0.5);
+        transform: translateY(-5px);
+        border-color: rgba(255, 255, 255, 0.4);
     }
 
     .skill-card h4 {
         color: var(--text-primary);
-        font-size: 1.05rem;
-        margin-bottom: 8px;
-        font-weight: 600;
+        font-size: 1.25rem;
+        margin-bottom: 12px;
+        font-family: 'Playfair Display', serif;
     }
 
     .skill-card p {
-        color: #e0e0e0;
-        font-size: 0.92rem;
+        color: #d0d0d0;
+        font-size: 0.95rem;
+        line-height: 1.6;
     }
 
     /* Seção Mídia & Destaques */
@@ -392,7 +404,7 @@
         opacity: 0.9;
     }
 
-    /* Seção de Serviços */
+    /* Seção de Serviços & Orçamento */
     .services-section {
         background-color: var(--bg-section-alt);
         border-bottom: 1px solid var(--border-color);
@@ -629,13 +641,20 @@
         cursor: pointer;
     }
 
-    /* Rodapé */
+    /* Rodapé / Chamada Final */
     footer {
-        padding: 40px 8% 25px 8%;
+        padding: 50px 8% 30px 8%;
         background-color: rgba(5, 5, 5, 0.95);
         border-top: 1px solid var(--border-color);
-        color: #aaaaaa;
-        font-size: 0.85rem;
+        text-align: center;
+    }
+
+    .footer-final-call {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.6rem;
+        color: var(--text-primary);
+        margin-bottom: 25px;
+        font-weight: 700;
     }
 
     .footer-links {
@@ -649,6 +668,7 @@
     .footer-links a {
         color: #cccccc;
         text-decoration: none;
+        font-size: 0.85rem;
         transition: color 0.3s ease;
     }
 
@@ -657,13 +677,12 @@
     }
 
     .footer-copy {
-        text-align: center;
         color: #888888;
         font-size: 0.8rem;
     }
 
     /* ======================================================
-       ESTILOS DA ASSISTENTE VIRTUAL ESPECIALISTA EM TI (CHAT INTERATIVO)
+       ASSISTENTE DE ATENDIMENTO VIRTUAL ESPECIALISTA EM TI
        ====================================================== */
     #bot-container {
         position: fixed;
@@ -675,7 +694,6 @@
         align-items: flex-end;
     }
 
-    /* Botão Flutuante Com Foto */
     .bot-launcher {
         width: 72px;
         height: 72px;
@@ -717,7 +735,6 @@
         z-index: 2;
     }
 
-    /* Card da Assistente */
     .bot-card {
         display: none;
         width: 380px;
@@ -738,7 +755,6 @@
         to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
-    /* Cabeçalho */
     .bot-header {
         background: linear-gradient(90deg, rgba(25, 40, 65, 0.95), rgba(12, 20, 35, 0.98));
         padding: 16px 20px;
@@ -789,9 +805,8 @@
         color: #ffffff;
     }
 
-    /* Palco da Foto Real */
     .bot-avatar-stage {
-        height: 160px;
+        height: 150px;
         background: radial-gradient(circle at 50% 40%, rgba(0, 240, 255, 0.15) 0%, rgba(5, 10, 20, 0.95) 75%);
         display: flex;
         justify-content: center;
@@ -801,15 +816,14 @@
     }
 
     .bot-avatar-stage img {
-        width: 110px;
-        height: 110px;
+        width: 105px;
+        height: 105px;
         border-radius: 50%;
         object-fit: cover;
         border: 3px solid var(--cyber-cyan);
         box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
     }
 
-    /* Chat / Balão de Resposta */
     .bot-body {
         padding: 18px;
         max-height: 280px;
@@ -900,12 +914,11 @@
 <header>
     <div class="logo" id="displayHeaderLogo">Carla Miter Tech</div>
     <nav>
-        <a href="#perfil">Perfil</a>
-        <a href="#midias">Destaques</a>
+        <a href="#perfil">Início</a>
+        <a href="#servicos-copy">Serviços</a>
+        <a href="#beneficios">Vantagens</a>
         <a href="#produtos">Produtos</a>
-        <a href="#servicos">Serviços</a>
         <a href="#contato">Contato</a>
-        <a href="#institucional">Institucional</a>
 
         <a href="https://www.instagram.com/carlamiter" target="_blank" class="nav-insta" id="displayNavInstaLink">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
@@ -914,70 +927,79 @@
     </nav>
 </header>
 
-<!-- Seção Principal / Perfil -->
+<!-- 1. TOPO DO SITE (Hero Section) -->
 <section id="perfil" class="hero">
     <div class="hero-content-wrapper">
         <div class="profile-photo-container">
             <img id="displayProfilePhoto" src="" alt="Carla Miter">
         </div>
         <div class="hero-text-content">
-            <div class="hero-tag">Desenvolvimento & Tecnologia</div>
-            <h1 id="displayHeroTitle">Carla Miter Tech</h1>
-            <h2 id="displayHeroSubtitle">Técnica de Sistemas, Contadora Parceira & Designer na Empresa. Soluções computacionais e desenvolvimento web sob medida.</h2>
+            <div class="hero-tag">Tecnologia, Sistemas & Negócios</div>
+            <h1 id="displayHeroTitle">Sua empresa forte na internet e regularizada para crescer</h1>
+            <h2 id="displayHeroSubtitle">Transformamos o seu negócio com presença digital profissional, aplicativos sob medida e descomplicação completa na abertura de MEI e suporte técnico.</h2>
+            <a href="#" target="_blank" id="displayHeroCta" class="btn-hero-cta">Falar no WhatsApp</a>
         </div>
     </div>
+</section>
 
-    <div class="tech-vision">
-        <p><strong id="displayVisionPrefix">Minha visão como técnica:</strong> <span id="displayVisionText">focada em criar soluções simples, acessíveis e funcionais para o dia a dia. Estou sempre em constante atualização e acompanhando as tendências da área de tecnologia.</span></p>
-    </div>
-
-    <h3 class="section-title">Tecnologias e Ferramentas</h3>
-    <p class="section-subtitle">Conhecimentos técnicos, serviços digitais e especialidades:</p>
+<!-- 2. SEÇÃO DE SERVIÇOS (Os 3 Pilares) -->
+<section id="servicos-copy" class="products-section">
+    <h2 class="section-title">Nossas Soluções para o seu Negócio</h2>
+    <p class="section-subtitle">Tecnologia descomplicada e voltada para resultados práticos:</p>
 
     <div class="skills-grid">
         <div class="skill-card">
-            <h4>Abertura de MEI</h4>
-            <p>Especialista em Abertura de MEI para autônomos e empreendedores.</p>
+            <h4>Criação de Web Sites</h4>
+            <p>Sites profissionais, modernos e ultrarrápidos, acessados direto pelo celular e otimizados para aparecer no Google.</p>
         </div>
         <div class="skill-card">
-            <h4>Linguagens & Web</h4>
-            <p>HTML5, CSS3, JavaScript.</p>
+            <h4>Desenvolvimento de Aplicativos (Apps)</h4>
+            <p>Soluções sob medida para automatizar os processos do seu negócio e engajar o seu público com eficiência.</p>
         </div>
         <div class="skill-card">
-            <h4>Ferramentas de Escritório/Produtividade</h4>
-            <p>LibreOffice Calc/Writer, Excel avançado, criação de PDFs interativos.</p>
+            <h4>Atendimento e Abertura de MEI</h4>
+            <p>Orientação completa e descomplicação para você sair da informalidade, emitir nota fiscal e garantir direitos previdenciários.</p>
+        </div>
+    </div>
+</section>
+
+<!-- 3. POR QUE ESCOLHER NOSSOS SERVIÇOS -->
+<section id="beneficios" class="media-section">
+    <h2 class="section-title">Por Que Escolher Nossos Serviços?</h2>
+    <p class="section-subtitle">Diferenciais pensados para o sucesso do microempreendedor:</p>
+
+    <div class="skills-grid">
+        <div class="skill-card">
+            <h4>Agilidade nos Processos</h4>
+            <p>Entregas rápidas e eficientes para você não perder tempo e colocar suas ideias em prática imediatamente.</p>
         </div>
         <div class="skill-card">
-            <h4>Hospedagem & Controle de Versão</h4>
-            <p>Git, GitHub, Vercel.</p>
+            <h4>Suporte Direto sem Intermediários</h4>
+            <p>Atendimento humanizado, transparente e direto com quem realmente entende e resolve o seu problema técnico.</p>
         </div>
         <div class="skill-card">
-            <h4>Cartões de Visita Digitais & Links de Bio</h4>
-            <p>Criação e adaptação em PWA/HTML simples. Monte um cartão de visita interativo para celular.</p>
-        </div>
-        <div class="skill-card">
-            <h4>Digitalização de Documentos e Tabelas</h4>
-            <p>Para pessoas e pequenas empresas. Serviço de converter papéis/cadernos/anotações em uma planilha limpa, automatizada com fórmulas e pronta para impressão.</p>
+            <h4>Foco no Crescimento do Pequeno Negócio</h4>
+            <p>Estratégias e ferramentas acessíveis planejadas sob medida para impulsionar o faturamento e a organização da sua empresa.</p>
         </div>
     </div>
 </section>
 
 <!-- Seção: Mídias & Destaques -->
-<section id="midias" class="media-section">
+<section id="midias" class="products-section">
     <h2 class="section-title">Galeria & Destaques</h2>
     <p class="section-subtitle">Confira demonstrações em vídeo, avisos e imagens dos projetos e novidades.</p>
     <div class="media-grid" id="mediaGrid"></div>
 </section>
 
 <!-- Seção: Produtos Digitais & Soluções Prontas -->
-<section id="produtos" class="products-section">
+<section id="produtos" class="media-section">
     <h2 class="section-title">Produtos & Soluções Prontas</h2>
     <p class="section-subtitle">Adquira soluções prontas desenvolvidas para otimizar sua rotina e seu negócio.</p>
     <div class="products-grid" id="productsGrid"></div>
 </section>
 
-<!-- Seção de Serviços -->
-<section id="servicos" class="services-section">
+<!-- Seção de Orçamento / Serviços -->
+<section id="servicos" class="products-section">
     <h2 class="section-title">Serviços & Orçamento</h2>
     <p class="section-subtitle">Entre em contato para solicitar um orçamento personalizado conforme sua necessidade.</p>
     <div class="services-grid">
@@ -996,7 +1018,7 @@
 </section>
 
 <!-- Seção Contato -->
-<section id="contato" class="contact-section">
+<section id="contato" class="media-section">
     <h2 class="section-title">Contato</h2>
     <p class="section-subtitle">Entre em contato ou acompanhe o trabalho pelas redes sociais:</p>
     <div class="contact-grid">
@@ -1011,26 +1033,6 @@
         <div class="contact-item">
             <span>Instagram</span>
             <a href="#" target="_blank" id="displayContactInstaLink"><span id="displayContactInsta">@carlamiter</span></a>
-        </div>
-    </div>
-</section>
-
-<!-- Seção Institucional -->
-<section id="institucional" class="inst-section">
-    <h2 class="section-title">Institucional</h2>
-    <p class="section-subtitle">Nossos pilares fundamentais, visão de trabalho e compromisso com os clientes.</p>
-    <div class="inst-grid">
-        <div class="inst-card">
-            <h4>Missão</h4>
-            <p>Oferecer suporte tecnológico e soluções digitais acessíveis, ajudando pequenos negócios e autônomos a se estruturarem e crescerem com facilidade.</p>
-        </div>
-        <div class="inst-card">
-            <h4>Visão</h4>
-            <p>Ser referência em soluções computacionais simples, funcionais e humanizadas, unindo tecnologia, design e visão contábil prática.</p>
-        </div>
-        <div class="inst-card">
-            <h4>Valores</h4>
-            <p>Transparência, constante atualização técnica, simplicidade, ética profissional e respeito absoluto aos dados de cada cliente.</p>
         </div>
     </div>
 </section>
@@ -1067,7 +1069,7 @@
     <div class="modal-content">
         <span class="close-modal" onclick="closeModal('canalEticaModal')">&times;</span>
         <h4>Canal de Ética</h4>
-        <p>Para dúvidas éticas ou sugestões referentes aos serviços prestados, envie um e-mail com o assunto <em>"Canal de Ética"</em>.</p>
+        <p><strong>Canal de Ética:</strong> Para dúvidas éticas ou sugestões referentes aos serviços prestados, envie um e-mail com o assunto correspondente.</p>
     </div>
 </div>
 
@@ -1075,7 +1077,7 @@
     <div class="modal-content">
         <span class="close-modal" onclick="closeModal('centralPrivacidadeModal')">&times;</span>
         <h4>Central de Privacidade</h4>
-        <p>Você tem o direito de solicitar a confirmação, o acesso ou a exclusão de seus dados pessoais em nossos registros.</p>
+        <p>Você tem o direito de solicitar a confirmação, o acesso ou a exclusão de seus dados pessoais em nossos registros a qualquer momento.</p>
     </div>
 </div>
 
@@ -1087,8 +1089,11 @@
     </div>
 </div>
 
-<!-- Rodapé -->
+<!-- 4. RODAPÉ / CHAMADA FINAL -->
 <footer>
+    <div class="footer-final-call">
+        Não deixe para depois: tire sua ideia do papel e digitalize seu negócio hoje mesmo!
+    </div>
     <div class="footer-links">
         <a href="javascript:void(0)" onclick="openModal('infoGeneraisModal')">Informações gerais</a>
         <a href="javascript:void(0)" onclick="openModal('avisoPrivacidadeModal')">Aviso de privacidade</a>
@@ -1102,7 +1107,7 @@
 </footer>
 
 <!-- ======================================================
-     AGENTE DE ATENDIMENTO VIRTUAL ESPECIALISTA EM TI
+     ASSISTENTE DE ATENDIMENTO VIRTUAL (ATUALIZADO COM SEU TEXTO)
      ====================================================== -->
 <div id="bot-container">
     <div class="bot-card" id="botCard">
@@ -1125,8 +1130,8 @@
         <!-- Conteúdo do Chat -->
         <div class="bot-body" id="botBody">
             <div class="bot-speech-bubble" id="botBubbleText">
-                Olá! Seja bem-vindo(a) à Carlamitertech.<br><br>
-                Como posso chamar você para iniciarmos nosso atendimento?
+                Prezado(a), agradecemos pelo contato com a nossa assessoria em Sistemas e Soluções Empresariais. 💼<br><br>
+                Para direcionarmos o seu atendimento ao especialista responsável, por favor, informe o seu nome completo:
             </div>
         </div>
 
@@ -1212,9 +1217,8 @@
     function renderSiteInfo() {
         document.getElementById('pageTitle').innerText = `${siteInfo.name} - Portfólio, Serviços & Produtos`;
         document.getElementById('displayHeaderLogo').innerText = siteInfo.name;
-        document.getElementById('displayHeroTitle').innerText = siteInfo.name;
-        document.getElementById('displayHeroSubtitle').innerText = siteInfo.subtitle;
-        document.getElementById('displayVisionText').innerText = siteInfo.vision;
+        document.getElementById('displayHeroTitle').innerText = "Sua empresa forte na internet e regularizada para crescer";
+        document.getElementById('displayHeroSubtitle').innerText = "Transformamos o seu negócio com presença digital profissional, aplicativos sob medida e descomplicação completa na abertura de MEI e suporte técnico.";
         document.getElementById('displayProfilePhoto').src = siteInfo.photo;
         document.getElementById('botAvatarImage').src = siteInfo.photo;
         document.getElementById('botLauncherImage').src = siteInfo.photo;
@@ -1234,7 +1238,9 @@
         document.getElementById('displayContactInstaLink').href = instaUrl;
         document.getElementById('displayNavInstaLink').href = instaUrl;
 
-        document.getElementById('displayServiceQuoteBtn').href = `https://wa.me/${rawPhone}?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20personalizado.`;
+        const ctaUrl = `https://wa.me/${rawPhone}?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Carlamitertech.`;
+        document.getElementById('displayHeroCta').href = ctaUrl;
+        document.getElementById('displayServiceQuoteBtn').href = ctaUrl;
     }
 
     function renderMedia() {
@@ -1316,17 +1322,17 @@
         if (event.target.classList.contains('modal')) event.target.style.display = "none";
     }
 
-    /* --- LÓGICA DO AGENTE DE ATENDIMENTO VIRTUAL ESPECIALISTA EM TI --- */
+    /* --- LÓGICA DO ATENDIMENTO VIRTUAL --- */
     let voiceEnabled = true;
-    let botState = 0; // 0: aguardando nome, 1: aguardando empresa, 2: aguardando problema, 3: finalizado
-    let clientData = { name: '', company: '', problem: '' };
+    let botState = 0; // 0: nome, 1: empresa, 2: escopo de interesse
+    let clientData = { name: '', company: '', interest: '' };
 
     function toggleBotCard() {
         const card = document.getElementById('botCard');
         if (card.style.display === 'none' || card.style.display === '') {
             card.style.display = 'flex';
             if (botState === 0) {
-                speakText("Olá! Seja bem-vindo à Carlamitertech. Como posso chamar você para iniciarmos nosso atendimento?");
+                speakText("Prezado(a), agradecemos pelo contato com a nossa assessoria em Sistemas e Soluções Empresariais. Para direcionarmos o seu atendimento ao especialista responsável, por favor, informe o seu nome completo.");
             }
         } else {
             card.style.display = 'none';
@@ -1376,9 +1382,9 @@
         inputField.value = '';
 
         let responseText = "";
-
-        // Verificações gerais caso o usuário pergunte preço ou orçamento específico (Regra 1)
         const lowerVal = val.toLowerCase();
+
+        // Regra de preço/orçamento específico
         if (lowerVal.includes('preço') || lowerVal.includes('quanto custa') || lowerVal.includes('valor') || lowerVal.includes('orçamento')) {
             responseText = "O especialista técnico poderá analisar o seu caso em detalhes na nossa reunião. Vamos agendar?";
             appendMessage('bot', responseText);
@@ -1389,21 +1395,21 @@
         if (botState === 0) {
             clientData.name = val;
             botState = 1;
-            responseText = `Prazer em conhecê-lo(a), ${clientData.name}!<br><br>Qual é o nome da sua empresa ou negócio?`;
+            responseText = `Obrigado, ${clientData.name}.<br><br>Qual é o nome da empresa (se houver)?`;
         } else if (botState === 1) {
             clientData.company = val;
             botState = 2;
-            responseText = `Perfeito, ${clientData.company}.<br><br>Qual é o problema ou projeto técnico que vocês desejam resolver?`;
+            responseText = `Perfeito!<br><br>Qual é o seu escopo de interesse principal?<br>[1] Desenvolvimento de Website Institucional<br>[2] Engenharia e Criação de Aplicativo (App)<br>[3] Consultoria para Abertura e Regularização de MEI<br><br><em>Indique a opção desejada ou faça um breve resumo da sua necessidade.</em>`;
         } else if (botState === 2) {
-            clientData.problem = val;
+            clientData.interest = val;
             botState = 3;
-            responseText = `Obrigado pelas informações, ${clientData.name}.<br><br>O especialista técnico poderá analisar o seu caso em detalhes na nossa reunião. Vamos agendar?<br><br><a href="https://wa.me/${siteInfo.phone}?text=${encodeURIComponent('Olá, meu nome é ' + clientData.name + ' da empresa ' + clientData.company + '. Gostaria de agendar a consultoria técnica para: ' + clientData.problem)}" target="_blank" style="color: var(--cyber-cyan); font-weight: 700; text-decoration: underline;">Clique aqui para confirmar no WhatsApp &rsaquo;</a>`;
+            responseText = `O especialista técnico poderá analisar o seu caso em detalhes na nossa reunião. Vamos agendar?<br><br><a href="https://wa.me/${siteInfo.phone}?text=${encodeURIComponent('Olá, meu nome é ' + clientData.name + ' da empresa ' + clientData.company + '. Meu interesse é: ' + clientData.interest)}" target="_blank" style="color: var(--cyber-cyan); font-weight: 700; text-decoration: underline;">Clique aqui para confirmar no WhatsApp &rsaquo;</a>`;
         } else {
-            responseText = "Já registramos os seus dados. Para prosseguir com o agendamento da consultoria, clique no link do WhatsApp acima!";
+            responseText = "Seus dados já foram registrados. Para prosseguir, clique no link do WhatsApp acima e fale diretamente com o especialista!";
         }
 
         appendMessage('bot', responseText);
-        speakText(responseText.replace(/<[^>]*>?/gm, '')); // Fala sem tags HTML
+        speakText(responseText.replace(/<[^>]*>?/gm, ''));
     }
 
     function speakText(text) {

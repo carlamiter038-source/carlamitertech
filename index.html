@@ -663,7 +663,7 @@
     }
 
     /* ======================================================
-       DESIGN DA ASSISTENTE DA CARLAMITERTECH (FOTO REAL)
+       ESTILOS DA ASSISTENTE DA CARLAMITERTECH (FOTO REAL)
        ====================================================== */
     #bot-container {
         position: fixed;
@@ -789,7 +789,7 @@
         color: #ffffff;
     }
 
-    /* Palco da Foto de Perfil */
+    /* Palco da Foto Real */
     .bot-avatar-stage {
         height: 220px;
         background: radial-gradient(circle at 50% 40%, rgba(0, 240, 255, 0.15) 0%, rgba(5, 10, 20, 0.95) 75%);
@@ -812,7 +812,7 @@
     /* Chat / Balão de Resposta */
     .bot-body {
         padding: 18px;
-        max-height: 290px;
+        max-height: 310px;
         overflow-y: auto;
         display: flex;
         flex-direction: column;
@@ -859,32 +859,48 @@
         transform: translateX(4px);
     }
 
+    .bot-option-btn.whatsapp-direct {
+        background: linear-gradient(90deg, rgba(0, 255, 102, 0.15), rgba(0, 180, 80, 0.05));
+        border-color: #00ff66;
+        color: #00ff66;
+        font-weight: 600;
+    }
+
+    .bot-option-btn.whatsapp-direct:hover {
+        background: rgba(0, 255, 102, 0.3);
+        border-color: #00ff66;
+        color: #ffffff;
+    }
+
     .bot-controls {
         padding: 12px 18px 16px 18px;
         border-top: 1px solid rgba(255, 255, 255, 0.08);
         display: flex;
         gap: 10px;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
     }
 
-    .bot-voice-toggle {
+    .bot-voice-toggle, .bot-music-toggle {
         background: rgba(0, 240, 255, 0.15);
         border: 1px solid var(--cyber-cyan);
         color: var(--cyber-cyan);
         border-radius: 20px;
-        padding: 7px 14px;
-        font-size: 0.78rem;
+        padding: 6px 12px;
+        font-size: 0.75rem;
         font-weight: 600;
         cursor: pointer;
         display: flex;
         align-items: center;
-        gap: 6px;
+        gap: 5px;
         transition: all 0.3s;
     }
 
-    .bot-voice-toggle.active {
+    .bot-voice-toggle.active, .bot-music-toggle.active {
         background: var(--cyber-cyan);
         color: #000;
-        box-shadow: 0 0 12px rgba(0, 240, 255, 0.5);
+        box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
     }
 </style>
 </head>
@@ -1096,7 +1112,7 @@
 </footer>
 
 <!-- ======================================================
-     ASSISTENTE DA CARLAMITERTECH (SISTEMA COM SUA FOTO)
+     ASSISTENTE DA CARLAMITERTECH (FOTO + MÚSICA DE ESPERA)
      ====================================================== -->
 <div id="bot-container">
     <div class="bot-card" id="botCard">
@@ -1105,7 +1121,7 @@
                 <div class="bot-status-dot"></div>
                 <div class="bot-title-text">
                     <h4>Assistente da Carlamitertech</h4>
-                    <span>Assistente Virtual IA</span>
+                    <span>Atendimento Inteligente</span>
                 </div>
             </div>
             <button class="bot-close-btn" onclick="toggleBotCard()">&times;</button>
@@ -1119,7 +1135,7 @@
         <!-- Conteúdo do Chat -->
         <div class="bot-body">
             <div class="bot-speech-bubble" id="botBubbleText">
-                Olá! Sou a Assistente da Carlamitertech. Como posso ajudar você a transformar suas ideias em tecnologia hoje?
+                Olá! Sou a assistente virtual da Carlamitertech. Enquanto aguarda, aproveite nossa trilha sonora suave e escolha abaixo o assunto desejado:
             </div>
 
             <div class="bot-options-grid" id="botOptions">
@@ -1132,19 +1148,35 @@
                 <button class="bot-option-btn" onclick="askBot('mei')">
                     📝 Abertura de MEI <span>&rsaquo;</span>
                 </button>
+                <button class="bot-option-btn" onclick="askBot('planilhas')">
+                    📊 Planilhas & Digitalização <span>&rsaquo;</span>
+                </button>
                 <button class="bot-option-btn" onclick="askBot('orcamento')">
                     💬 Como solicitar um orçamento? <span>&rsaquo;</span>
                 </button>
-                <button class="bot-option-btn" onclick="askBot('contato')">
-                    📞 Canais de Contato Direto <span>&rsaquo;</span>
+                <button class="bot-option-btn" onclick="askBot('pagamento')">
+                    💳 Formas de Pagamento & PIX <span>&rsaquo;</span>
+                </button>
+                <!-- Opções de Direcionamento Direto para o WhatsApp -->
+                <button class="bot-option-btn whatsapp-direct" onclick="redirectToWhatsApp('Olá! Gostaria de atendimento sobre os serviços de TI e desenvolvimento web.')">
+                    🟢 Falar no WhatsApp sobre Serviços <span>&rsaquo;</span>
+                </button>
+                <button class="bot-option-btn whatsapp-direct" onclick="redirectToWhatsApp('Olá! Tenho interesse na Abertura de MEI e preciso de suporte.')">
+                    🟢 Falar no WhatsApp sobre MEI <span>&rsaquo;</span>
+                </button>
+                <button class="bot-option-btn whatsapp-direct" onclick="redirectToWhatsApp('Olá! Gostaria de tirar dúvidas gerais com a Carlamitertech.')">
+                    🟢 Falar com Atendente no WhatsApp <span>&rsaquo;</span>
                 </button>
             </div>
         </div>
 
-        <!-- Controles -->
+        <!-- Controles (Voz e Música de Espera) -->
         <div class="bot-controls">
             <button class="bot-voice-toggle active" id="btnVoiceToggle" onclick="toggleVoice()">
                 🔊 Voz: Ativada
+            </button>
+            <button class="bot-music-toggle active" id="btnMusicToggle" onclick="toggleMusic()">
+                🎵 Música: Tocando
             </button>
         </div>
     </div>
@@ -1320,25 +1352,31 @@
         if (event.target.classList.contains('modal')) event.target.style.display = "none";
     }
 
-    /* --- LÓGICA DE FALA DA ASSISTENTE (MANTENDO FALAS ROBÓTICAS E VOZ) --- */
+    /* --- LÓGICA DE FALA, RESPOSTAS E MÚSICA DE ESPERA --- */
     let voiceEnabled = true;
+    let musicEnabled = true;
+    let audioCtx = null;
+    let musicInterval = null;
 
     const botAnswers = {
         servicos: "Oferecemos desenvolvimento de sistemas web sob medida, cartões de visita digitais em PWA, digitalização e automação de planilhas e assessoria completa para abertura de MEI!",
         produtos: "Temos soluções incríveis prontas: o App Táxify para gestão de corridas, a Agenda Diária PWA 100% offline, o Aplicativo de Timbre para Baixistas e Páginas de Bio para redes sociais.",
         mei: "A Carla é especialista em Abertura de MEI para autônomos e microempreendedores, cuidando de toda a estrutura para formalizar seu negócio sem complicações.",
-        orcamento: "Para solicitar um orçamento personalizado, basta clicar no botão 'Solicitar Orçamento' na seção de Serviços ou enviar uma mensagem direta para o WhatsApp (31) 97564-4571.",
-        contato: "Você pode falar conosco pelo WhatsApp (31) 97564-4571, por e-mail no carlamiter038@gmail.com ou no Instagram @carlamiter."
+        planilhas: "Realizamos o serviço de digitalização e automação de planilhas e documentos, convertendo rascunhos e papéis em arquivos organizados com fórmulas prontas para uso.",
+        orcamento: "Para solicitar um orçamento personalizado, basta clicar no botão 'Solicitar Orçamento' na seção de Serviços ou falar diretamente conosco via WhatsApp pelo botão abaixo.",
+        pagamento: "Aceitamos pagamentos via PIX utilizando a nossa chave cadastrada (carlapemi@outlook.com) ou combinando formas facilitadas via WhatsApp."
     };
 
     function toggleBotCard() {
         const card = document.getElementById('botCard');
         if (card.style.display === 'none' || card.style.display === '') {
             card.style.display = 'flex';
-            speakText("Olá! Sou a Assistente da Carlamitertech. Como posso ajudar você hoje?");
+            speakText("Olá! Sou a assistente virtual da Carlamitertech. Enquanto aguarda, aproveite nossa trilha sonora suave e escolha o assunto desejado.");
+            if (musicEnabled) startAmbientMusic();
         } else {
             card.style.display = 'none';
             stopSpeech();
+            stopAmbientMusic();
         }
     }
 
@@ -1355,12 +1393,80 @@
         }
     }
 
+    function toggleMusic() {
+        musicEnabled = !musicEnabled;
+        const btn = document.getElementById('btnMusicToggle');
+        if (musicEnabled) {
+            btn.classList.add('active');
+            btn.innerHTML = '🎵 Música: Tocando';
+            startAmbientMusic();
+        } else {
+            btn.classList.remove('active');
+            btn.innerHTML = '🔇 Música: Silenciada';
+            stopAmbientMusic();
+        }
+    }
+
+    /* Gerador de Música de Espera Suave com Web Audio API */
+    function startAmbientMusic() {
+        if (musicInterval) return;
+        try {
+            const AudioContext = window.AudioContext || window.webkitAudioContext;
+            if (!audioCtx) audioCtx = new AudioContext();
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+
+            // Notas suaves de acorde (frequências em Hz para uma melodia de espera relaxante)
+            const chord = [261.63, 329.63, 392.00, 523.25]; // C E G C
+            let index = 0;
+
+            musicInterval = setInterval(() => {
+                if (!musicEnabled) return;
+                try {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+
+                    osc.type = 'sine'; // Som suave e puro tipo flauta/teclado
+                    osc.frequency.setValueAtTime(chord[index], audioCtx.currentTime);
+                    index = (index + 1) % chord.length;
+
+                    // Envelope de volume suave (fade in / fade out)
+                    gain.gain.setValueAtTime(0.01, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.04, audioCtx.currentTime + 0.8);
+                    gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 3.2);
+
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + 3.3);
+                } catch (e) {
+                    console.error(e);
+                }
+            }, 2500);
+        } catch (e) {
+            console.log("Áudio ambiente não suportado automaticamente.");
+        }
+    }
+
+    function stopAmbientMusic() {
+        if (musicInterval) {
+            clearInterval(musicInterval);
+            musicInterval = null;
+        }
+    }
+
     function askBot(key) {
         const answerText = botAnswers[key];
         if (!answerText) return;
 
         document.getElementById('botBubbleText').innerText = answerText;
         speakText(answerText);
+    }
+
+    function redirectToWhatsApp(customMessage) {
+        const encodedMsg = encodeURIComponent(customMessage);
+        const waUrl = `https://wa.me/${siteInfo.phone}?text=${encodedMsg}`;
+        window.open(waUrl, '_blank');
     }
 
     function speakText(text) {
@@ -1395,3 +1501,4 @@
 </script>
 </body>
 </html>
+

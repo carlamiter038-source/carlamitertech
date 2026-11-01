@@ -663,7 +663,7 @@
     }
 
     /* ======================================================
-       ESTILOS DA ASSISTENTE DA CARLAMITERTECH (FOTO REAL)
+       ESTILOS DA ASSISTENTE VIRTUAL ESPECIALISTA EM TI (CHAT INTERATIVO)
        ====================================================== */
     #bot-container {
         position: fixed;
@@ -791,7 +791,7 @@
 
     /* Palco da Foto Real */
     .bot-avatar-stage {
-        height: 220px;
+        height: 160px;
         background: radial-gradient(circle at 50% 40%, rgba(0, 240, 255, 0.15) 0%, rgba(5, 10, 20, 0.95) 75%);
         display: flex;
         justify-content: center;
@@ -801,8 +801,8 @@
     }
 
     .bot-avatar-stage img {
-        width: 170px;
-        height: 170px;
+        width: 110px;
+        height: 110px;
         border-radius: 50%;
         object-fit: cover;
         border: 3px solid var(--cyber-cyan);
@@ -812,7 +812,7 @@
     /* Chat / Balão de Resposta */
     .bot-body {
         padding: 18px;
-        max-height: 310px;
+        max-height: 280px;
         overflow-y: auto;
         display: flex;
         flex-direction: column;
@@ -825,61 +825,56 @@
         border-radius: 14px 14px 14px 3px;
         padding: 14px 16px;
         color: #f5f5f5;
-        font-size: 0.9rem;
+        font-size: 0.88rem;
         line-height: 1.5;
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     }
 
-    .bot-options-grid {
+    .bot-input-area {
+        padding: 12px 18px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
         display: flex;
-        flex-direction: column;
-        gap: 9px;
+        gap: 8px;
+        background: rgba(10, 14, 22, 0.95);
     }
 
-    .bot-option-btn {
-        background: linear-gradient(90deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        color: #e2e8f0;
+    .bot-input-field {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 20px;
         padding: 10px 14px;
-        border-radius: 10px;
-        font-size: 0.84rem;
-        text-align: left;
-        cursor: pointer;
-        transition: all 0.25s ease;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-weight: 500;
+        color: #ffffff;
+        font-size: 0.85rem;
+        outline: none;
     }
 
-    .bot-option-btn:hover {
-        background: linear-gradient(90deg, rgba(0, 240, 255, 0.25), rgba(0, 100, 255, 0.12));
+    .bot-input-field:focus {
         border-color: var(--cyber-cyan);
-        color: #ffffff;
-        transform: translateX(4px);
     }
 
-    .bot-option-btn.whatsapp-direct {
-        background: linear-gradient(90deg, rgba(0, 255, 102, 0.15), rgba(0, 180, 80, 0.05));
-        border-color: #00ff66;
-        color: #00ff66;
-        font-weight: 600;
+    .bot-send-btn {
+        background: var(--cyber-cyan);
+        color: #000;
+        border: none;
+        border-radius: 20px;
+        padding: 0 16px;
+        font-weight: 700;
+        font-size: 0.82rem;
+        cursor: pointer;
+        transition: opacity 0.2s;
     }
 
-    .bot-option-btn.whatsapp-direct:hover {
-        background: rgba(0, 255, 102, 0.3);
-        border-color: #00ff66;
-        color: #ffffff;
+    .bot-send-btn:hover {
+        opacity: 0.85;
     }
 
     .bot-controls {
-        padding: 12px 18px 16px 18px;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 8px 18px 14px 18px;
         display: flex;
-        gap: 10px;
         justify-content: space-between;
         align-items: center;
-        flex-wrap: wrap;
+        background: rgba(10, 14, 22, 0.95);
     }
 
     .bot-voice-toggle {
@@ -887,20 +882,15 @@
         border: 1px solid var(--cyber-cyan);
         color: var(--cyber-cyan);
         border-radius: 20px;
-        padding: 6px 12px;
-        font-size: 0.75rem;
+        padding: 5px 10px;
+        font-size: 0.72rem;
         font-weight: 600;
         cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        transition: all 0.3s;
     }
 
     .bot-voice-toggle.active {
         background: var(--cyber-cyan);
         color: #000;
-        box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
     }
 </style>
 </head>
@@ -1112,7 +1102,7 @@
 </footer>
 
 <!-- ======================================================
-     ASSISTENTE DA CARLAMITERTECH (FOTO REAL - SEM MÚSICA)
+     AGENTE DE ATENDIMENTO VIRTUAL ESPECIALISTA EM TI
      ====================================================== -->
 <div id="bot-container">
     <div class="bot-card" id="botCard">
@@ -1120,8 +1110,8 @@
             <div class="bot-title-group">
                 <div class="bot-status-dot"></div>
                 <div class="bot-title-text">
-                    <h4>Assistente da Carlamitertech</h4>
-                    <span>Atendimento Inteligente</span>
+                    <h4>Assistente Especialista em TI</h4>
+                    <span>Atendimento Online</span>
                 </div>
             </div>
             <button class="bot-close-btn" onclick="toggleBotCard()">&times;</button>
@@ -1133,53 +1123,30 @@
         </div>
 
         <!-- Conteúdo do Chat -->
-        <div class="bot-body">
+        <div class="bot-body" id="botBody">
             <div class="bot-speech-bubble" id="botBubbleText">
-                Olá! Sou a assistente virtual da Carlamitertech. Como posso ajudar você a transformar suas ideias em tecnologia hoje?
-            </div>
-
-            <div class="bot-options-grid" id="botOptions">
-                <button class="bot-option-btn" onclick="askBot('servicos')">
-                    💻 Quais serviços são oferecidos? <span>&rsaquo;</span>
-                </button>
-                <button class="bot-option-btn" onclick="askBot('produtos')">
-                    🚀 Conhecer Produtos & Apps <span>&rsaquo;</span>
-                </button>
-                <button class="bot-option-btn" onclick="askBot('mei')">
-                    📝 Abertura de MEI <span>&rsaquo;</span>
-                </button>
-                <button class="bot-option-btn" onclick="askBot('planilhas')">
-                    📊 Planilhas & Digitalização <span>&rsaquo;</span>
-                </button>
-                <button class="bot-option-btn" onclick="askBot('orcamento')">
-                    💬 Como solicitar um orçamento? <span>&rsaquo;</span>
-                </button>
-                <button class="bot-option-btn" onclick="askBot('pagamento')">
-                    💳 Formas de Pagamento & PIX <span>&rsaquo;</span>
-                </button>
-                <!-- Opções de Direcionamento Direto para o WhatsApp -->
-                <button class="bot-option-btn whatsapp-direct" onclick="redirectToWhatsApp('Olá! Gostaria de atendimento sobre os serviços de TI e desenvolvimento web.')">
-                    🟢 Falar no WhatsApp sobre Serviços <span>&rsaquo;</span>
-                </button>
-                <button class="bot-option-btn whatsapp-direct" onclick="redirectToWhatsApp('Olá! Tenho interesse na Abertura de MEI e preciso de suporte.')">
-                    🟢 Falar no WhatsApp sobre MEI <span>&rsaquo;</span>
-                </button>
-                <button class="bot-option-btn whatsapp-direct" onclick="redirectToWhatsApp('Olá! Gostaria de tirar dúvidas gerais com a Carlamitertech.')">
-                    🟢 Falar com Atendente no WhatsApp <span>&rsaquo;</span>
-                </button>
+                Olá! Seja bem-vindo(a) à Carlamitertech.<br><br>
+                Como posso chamar você para iniciarmos nosso atendimento?
             </div>
         </div>
 
-        <!-- Controles (Apenas Voz) -->
+        <!-- Área de Entrada de Mensagem -->
+        <div class="bot-input-area">
+            <input type="text" id="botUserInput" class="bot-input-field" placeholder="Digite sua resposta aqui..." onkeypress="handleBotKeypress(event)">
+            <button class="bot-send-btn" onclick="processUserResponse()">Enviar</button>
+        </div>
+
+        <!-- Controles -->
         <div class="bot-controls">
             <button class="bot-voice-toggle active" id="btnVoiceToggle" onclick="toggleVoice()">
                 🔊 Voz: Ativada
             </button>
+            <span style="font-size: 0.7rem; color: #888;">Especialista em TI</span>
         </div>
     </div>
 
     <!-- Botão Flutuante -->
-    <div class="bot-launcher" onclick="toggleBotCard()" title="Falar com a Assistente da Carlamitertech">
+    <div class="bot-launcher" onclick="toggleBotCard()" title="Falar com a Assistente de TI">
         <div class="bot-launcher-badge"></div>
         <img id="botLauncherImage" src="Foto.jpg" alt="Carla Miter">
     </div>
@@ -1349,23 +1316,18 @@
         if (event.target.classList.contains('modal')) event.target.style.display = "none";
     }
 
-    /* --- LÓGICA DE FALA E RESPOSTAS --- */
+    /* --- LÓGICA DO AGENTE DE ATENDIMENTO VIRTUAL ESPECIALISTA EM TI --- */
     let voiceEnabled = true;
-
-    const botAnswers = {
-        servicos: "Oferecemos desenvolvimento de sistemas web sob medida, cartões de visita digitais em PWA, digitalização e automação de planilhas e assessoria completa para abertura de MEI!",
-        produtos: "Temos soluções incríveis prontas: o App Táxify para gestão de corridas, a Agenda Diária PWA 100% offline, o Aplicativo de Timbre para Baixistas e Páginas de Bio para redes sociais.",
-        mei: "A Carla é especialista em Abertura de MEI para autônomos e microempreendedores, cuidando de toda a estrutura para formalizar seu negócio sem complicações.",
-        planilhas: "Realizamos o serviço de digitalização e automação de planilhas e documentos, convertendo rascunhos e papéis em arquivos organizados com fórmulas prontas para uso.",
-        orcamento: "Para solicitar um orçamento personalizado, basta clicar no botão 'Solicitar Orçamento' na seção de Serviços ou falar diretamente conosco via WhatsApp pelo botão abaixo.",
-        pagamento: "Aceitamos pagamentos via PIX utilizando a nossa chave cadastrada (carlapemi@outlook.com) ou combinando formas facilitadas via WhatsApp."
-    };
+    let botState = 0; // 0: aguardando nome, 1: aguardando empresa, 2: aguardando problema, 3: finalizado
+    let clientData = { name: '', company: '', problem: '' };
 
     function toggleBotCard() {
         const card = document.getElementById('botCard');
         if (card.style.display === 'none' || card.style.display === '') {
             card.style.display = 'flex';
-            speakText("Olá! Sou a assistente virtual da Carlamitertech. Como posso ajudar você a transformar suas ideias em tecnologia hoje?");
+            if (botState === 0) {
+                speakText("Olá! Seja bem-vindo à Carlamitertech. Como posso chamar você para iniciarmos nosso atendimento?");
+            }
         } else {
             card.style.display = 'none';
             stopSpeech();
@@ -1385,18 +1347,63 @@
         }
     }
 
-    function askBot(key) {
-        const answerText = botAnswers[key];
-        if (!answerText) return;
-
-        document.getElementById('botBubbleText').innerText = answerText;
-        speakText(answerText);
+    function handleBotKeypress(event) {
+        if (event.key === 'Enter') {
+            processUserResponse();
+        }
     }
 
-    function redirectToWhatsApp(customMessage) {
-        const encodedMsg = encodeURIComponent(customMessage);
-        const waUrl = `https://wa.me/${siteInfo.phone}?text=${encodedMsg}`;
-        window.open(waUrl, '_blank');
+    function appendMessage(sender, text) {
+        const body = document.getElementById('botBody');
+        const bubble = document.createElement('div');
+        bubble.className = 'bot-speech-bubble';
+        if (sender === 'user') {
+            bubble.style.background = 'rgba(0, 240, 255, 0.15)';
+            bubble.style.borderColor = 'var(--cyber-cyan)';
+            bubble.style.textAlign = 'right';
+        }
+        bubble.innerHTML = text;
+        body.appendChild(bubble);
+        body.scrollTop = body.scrollHeight;
+    }
+
+    function processUserResponse() {
+        const inputField = document.getElementById('botUserInput');
+        const val = inputField.value.trim();
+        if (!val) return;
+
+        appendMessage('user', val);
+        inputField.value = '';
+
+        let responseText = "";
+
+        // Verificações gerais caso o usuário pergunte preço ou orçamento específico (Regra 1)
+        const lowerVal = val.toLowerCase();
+        if (lowerVal.includes('preço') || lowerVal.includes('quanto custa') || lowerVal.includes('valor') || lowerVal.includes('orçamento')) {
+            responseText = "O especialista técnico poderá analisar o seu caso em detalhes na nossa reunião. Vamos agendar?";
+            appendMessage('bot', responseText);
+            speakText(responseText);
+            return;
+        }
+
+        if (botState === 0) {
+            clientData.name = val;
+            botState = 1;
+            responseText = `Prazer em conhecê-lo(a), ${clientData.name}!<br><br>Qual é o nome da sua empresa ou negócio?`;
+        } else if (botState === 1) {
+            clientData.company = val;
+            botState = 2;
+            responseText = `Perfeito, ${clientData.company}.<br><br>Qual é o problema ou projeto técnico que vocês desejam resolver?`;
+        } else if (botState === 2) {
+            clientData.problem = val;
+            botState = 3;
+            responseText = `Obrigado pelas informações, ${clientData.name}.<br><br>O especialista técnico poderá analisar o seu caso em detalhes na nossa reunião. Vamos agendar?<br><br><a href="https://wa.me/${siteInfo.phone}?text=${encodeURIComponent('Olá, meu nome é ' + clientData.name + ' da empresa ' + clientData.company + '. Gostaria de agendar a consultoria técnica para: ' + clientData.problem)}" target="_blank" style="color: var(--cyber-cyan); font-weight: 700; text-decoration: underline;">Clique aqui para confirmar no WhatsApp &rsaquo;</a>`;
+        } else {
+            responseText = "Já registramos os seus dados. Para prosseguir com o agendamento da consultoria, clique no link do WhatsApp acima!";
+        }
+
+        appendMessage('bot', responseText);
+        speakText(responseText.replace(/<[^>]*>?/gm, '')); // Fala sem tags HTML
     }
 
     function speakText(text) {

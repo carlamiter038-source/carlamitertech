@@ -882,7 +882,7 @@
         flex-wrap: wrap;
     }
 
-    .bot-voice-toggle, .bot-music-toggle {
+    .bot-voice-toggle {
         background: rgba(0, 240, 255, 0.15);
         border: 1px solid var(--cyber-cyan);
         color: var(--cyber-cyan);
@@ -897,7 +897,7 @@
         transition: all 0.3s;
     }
 
-    .bot-voice-toggle.active, .bot-music-toggle.active {
+    .bot-voice-toggle.active {
         background: var(--cyber-cyan);
         color: #000;
         box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
@@ -1112,7 +1112,7 @@
 </footer>
 
 <!-- ======================================================
-     ASSISTENTE DA CARLAMITERTECH (FOTO + MÚSICA DE FUNDO DISCRETA)
+     ASSISTENTE DA CARLAMITERTECH (FOTO REAL - SEM MÚSICA)
      ====================================================== -->
 <div id="bot-container">
     <div class="bot-card" id="botCard">
@@ -1170,13 +1170,10 @@
             </div>
         </div>
 
-        <!-- Controles (Voz e Música de Fundo) -->
+        <!-- Controles (Apenas Voz) -->
         <div class="bot-controls">
             <button class="bot-voice-toggle active" id="btnVoiceToggle" onclick="toggleVoice()">
                 🔊 Voz: Ativada
-            </button>
-            <button class="bot-music-toggle active" id="btnMusicToggle" onclick="toggleMusic()">
-                🎶 Som: Ligado
             </button>
         </div>
     </div>
@@ -1352,11 +1349,8 @@
         if (event.target.classList.contains('modal')) event.target.style.display = "none";
     }
 
-    /* --- LÓGICA DE FALA, RESPOSTAS E TRILHA DE FUNDO DISCRETA --- */
+    /* --- LÓGICA DE FALA E RESPOSTAS --- */
     let voiceEnabled = true;
-    let musicEnabled = true;
-    let audioCtx = null;
-    let melodyInterval = null;
 
     const botAnswers = {
         servicos: "Oferecemos desenvolvimento de sistemas web sob medida, cartões de visita digitais em PWA, digitalização e automação de planilhas e assessoria completa para abertura de MEI!",
@@ -1372,11 +1366,9 @@
         if (card.style.display === 'none' || card.style.display === '') {
             card.style.display = 'flex';
             speakText("Olá! Sou a assistente virtual da Carlamitertech. Como posso ajudar você a transformar suas ideias em tecnologia hoje?");
-            if (musicEnabled) startWorshipMelody();
         } else {
             card.style.display = 'none';
             stopSpeech();
-            stopWorshipMelody();
         }
     }
 
@@ -1390,67 +1382,6 @@
             btn.classList.remove('active');
             btn.innerHTML = '🔇 Voz: Desativada';
             stopSpeech();
-        }
-    }
-
-    function toggleMusic() {
-        musicEnabled = !musicEnabled;
-        const btn = document.getElementById('btnMusicToggle');
-        if (musicEnabled) {
-            btn.classList.add('active');
-            btn.innerHTML = '🎶 Som: Ligado';
-            startWorshipMelody();
-        } else {
-            btn.classList.remove('active');
-            btn.innerHTML = '🔇 Som: Desligado';
-            stopWorshipMelody();
-        }
-    }
-
-    /* Gerador de Trilha Sonora de Fundo Suave */
-    function startWorshipMelody() {
-        if (melodyInterval) return;
-        try {
-            const AudioContext = window.AudioContext || window.webkitAudioContext;
-            if (!audioCtx) audioCtx = new AudioContext();
-            if (audioCtx.state === 'suspended') audioCtx.resume();
-
-            const worshipChord = [220.00, 261.63, 329.63, 392.00, 440.00];
-            let noteIdx = 0;
-
-            melodyInterval = setInterval(() => {
-                if (!musicEnabled) return;
-                try {
-                    const t = audioCtx.currentTime;
-                    const osc = audioCtx.createOscillator();
-                    const gain = audioCtx.createGain();
-
-                    osc.type = 'sine';
-                    osc.frequency.setValueAtTime(worshipChord[noteIdx % worshipChord.length], t);
-                    noteIdx++;
-
-                    gain.gain.setValueAtTime(0.001, t);
-                    gain.gain.linearRampToValueAtTime(0.03, t + 1.2);
-                    gain.gain.exponentialRampToValueAtTime(0.0001, t + 4.5);
-
-                    osc.connect(gain);
-                    gain.connect(audioCtx.destination);
-
-                    osc.start(t);
-                    osc.stop(t + 4.6);
-                } catch (e) {
-                    console.error(e);
-                }
-            }, 3200);
-        } catch (e) {
-            console.log("Áudio ambiente não suportado automaticamente.");
-        }
-    }
-
-    function stopWorshipMelody() {
-        if (melodyInterval) {
-            clearInterval(melodyInterval);
-            melodyInterval = null;
         }
     }
 

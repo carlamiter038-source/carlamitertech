@@ -1,307 +1,1444 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Configurações de SEO (Google) -->
-    <title>Técnica de Sistemas | Criação de Sites, Apps e Assessoria MEI</title>
-    <meta name="description" content="Infraestrutura digital e regularização para sua empresa. Desenvolvemos websites, aplicativos sob medida e realizamos a abertura segura do seu MEI.">
-    <meta name="keywords" content="Criação de Sites, Desenvolvimento de Apps, Abertura de MEI, Técnica de Sistemas, Soluções Corporativas, TI">
-    
-    <style>
-        /* Estilos básicos limpos e corporativos */
-        body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            color: #2c3e50;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-        }
-        header {
-            background-color: #1a252f;
-            padding: 20px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        nav {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 500;
-        }
-        .logo {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #ffffff;
-        }
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        section {
-            padding: 60px 0;
-            border-bottom: 1px solid #e9ecef;
-        }
-        .hero {
-            text-align: center;
-            padding: 80px 20px;
-            background-color: #ffffff;
-        }
-        .hero h1 {
-            font-size: 2.5rem;
-            color: #1a252f;
-            margin-bottom: 20px;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            color: #7f8c8d;
-            max-width: 800px;
-            margin: 0 auto 30px auto;
-        }
-        .btn-cta {
-            display: inline-block;
-            background-color: #2980b9;
-            color: #ffffff;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-        .btn-cta:hover {
-            background-color: #1f6391;
-        }
-        .grid-servicos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        .card-servico {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 6px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-        .card-servico h3 {
-            color: #1a252f;
-            margin-top: 0;
-            font-size: 1.25rem;
-        }
-        .bullet-list {
-            padding-left: 20px;
-            margin-top: 15px;
-        }
-        .bullet-list li {
-            margin-bottom: 8px;
-            font-size: 0.95rem;
-        }
-        .prazos-list {
-            list-style: none;
-            padding: 0;
-        }
-        .prazos-list li {
-            background: #ffffff;
-            margin-bottom: 15px;
-            padding: 20px;
-            border-left: 4px solid #2980b9;
-            border-radius: 0 4px 4px 0;
-        }
-        .form-contato {
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 6px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            max-width: 600px;
-            margin: 30px auto 0 auto;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-        .form-group input, .form-group textarea, .form-group select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        .lgpd-aviso {
-            font-size: 0.85rem;
-            color: #7f8c8d;
-            text-align: center;
-            margin-top: 15px;
-        }
-        footer {
-            background-color: #1a252f;
-            color: #bdc3c7;
-            text-align: center;
-            padding: 40px 20px;
-            font-size: 0.9rem;
-        }
-        footer a {
-            color: #3498db;
-            text-decoration: none;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">Carla Miter Tech - Portfólio, Serviços & Produtos</title>
+
+<!-- SCRIPT DE VERIFICAÇÃO E ANÚNCIOS DO GOOGLE ADSENSE -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2941217546237733"
+     crossorigin="anonymous"></script>
+
+<!-- META TAG DE CONTA DO ADSENSE -->
+<meta name="google-adsense-account" content="ca-pub-2941217546237733">
+
+<!-- METATAGS DE INDEXAÇÃO PARA BUSCA NO GOOGLE -->
+<meta name="description" content="Carla Miter Tech - Soluções computacionais, desenvolvimento web, sistemas sob medida e assessoria para abertura de MEI.">
+<meta name="robots" content="index, follow">
+
+<!-- Fontes do Google -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    /* Variáveis de Tema Customizáveis */
+    :root {
+        --bg-main: transparent;
+        --bg-section-alt: rgba(3, 1, 1, 0.6);
+        --bg-card: rgba(20, 20, 20, 0.75);
+        --accent-color: #ffffff;
+        --accent-text: #000000;
+        --text-primary: #f3f3f3;
+        --text-muted: #d0d0d0;
+        --border-color: rgba(255, 255, 255, 0.15);
+        --cyber-cyan: #00f0ff;
+    }
+
+    /* Estilos Gerais */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background-image: url('fundo.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-color: #0a0a0a;
+        color: var(--text-primary);
+        letter-spacing: 0.2px;
+        transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    /* Cabeçalho */
+    header {
+        background-color: rgba(10, 10, 10, 0.85);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border-color);
+        padding: 18px 8%;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.4rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        color: var(--text-primary);
+        text-transform: uppercase;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        color: #e0e0e0;
+        text-decoration: none;
+        font-size: 0.88rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+        color: var(--text-primary);
+    }
+
+    .nav-insta {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 6px 14px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-insta:hover {
+        background: var(--accent-color);
+        color: var(--accent-text) !important;
+        border-color: var(--accent-color);
+    }
+
+    /* Seções Gerais */
+    section {
+        padding: 120px 8% 80px 8%;
+        min-height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        backdrop-filter: blur(3px);
+    }
+
+    .hero {
+        border-bottom: 1px solid var(--border-color);
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-content-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+    }
+
+    .profile-photo-container {
+        flex-shrink: 0;
+    }
+
+    .profile-photo-container img {
+        width: 170px;
+        height: 170px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-text-content {
+        flex: 1;
+        min-width: 280px;
+    }
+
+    .hero-tag {
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+        color: #d1d1d1;
+        margin-bottom: 10px;
+        font-weight: 600;
+    }
+
+    .hero h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: var(--text-primary);
+        line-height: 1.2;
+    }
+
+    .hero h2 {
+        font-size: 1.15rem;
+        color: var(--text-muted);
+        font-weight: 300;
+        line-height: 1.6;
+        margin-bottom: 30px;
+    }
+
+    .btn-hero-cta {
+        display: inline-block;
+        background-color: #25d366;
+        color: #ffffff;
+        padding: 14px 28px;
+        border-radius: 30px;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .btn-hero-cta:hover {
+        transform: translateY(-3px);
+        background-color: #20ba5a;
+    }
+
+    .section-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.2rem;
+        margin-bottom: 10px;
+        color: var(--text-primary);
+    }
+
+    .section-subtitle {
+        color: #d0d0d0;
+        margin-bottom: 40px;
+        font-size: 0.95rem;
+    }
+
+    /* Skills / Serviços Grid */
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
+    }
+
+    .skill-card {
+        background-color: var(--bg-card);
+        border: 1px solid var(--border-color);
+        padding: 30px;
+        border-radius: 16px;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(8px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .skill-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .skill-card h4 {
+        color: var(--text-primary);
+        font-size: 1.25rem;
+        margin-bottom: 12px;
+        font-family: 'Playfair Display', serif;
+    }
+
+    .skill-card p {
+        color: #d0d0d0;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    /* Seção Mídia & Destaques */
+    .media-section {
+        background-color: var(--bg-section-alt);
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .media-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
+    }
+
+    .media-card {
+        background-color: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        backdrop-filter: blur(8px);
+    }
+
+    .media-container {
+        width: 100%;
+        height: 220px;
+        background-color: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .media-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .media-info {
+        padding: 16px 20px;
+    }
+
+    .media-info h4 {
+        color: var(--text-primary);
+        font-size: 1.05rem;
+        margin-bottom: 6px;
+    }
+
+    .media-info p {
+        color: #cccccc;
+        font-size: 0.85rem;
+    }
+
+    /* Seção de Produtos Digitais */
+    .products-section {
+        background-color: rgba(0, 0, 0, 0.3);
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 28px;
+    }
+
+    .product-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(8px);
+    }
+
+    .product-card:hover {
+        border-color: rgba(255, 255, 255, 0.4);
+        transform: translateY(-5px);
+    }
+
+    .product-image-container {
+        width: 100%;
+        height: 220px;
+        background-color: #000;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 15px;
+    }
+
+    .product-image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .product-badge {
+        align-self: flex-start;
+        background: rgba(255, 255, 255, 0.15);
+        color: var(--text-primary);
+        font-size: 0.75rem;
+        padding: 4px 12px;
+        border-radius: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+
+    .product-card h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.35rem;
+        color: var(--text-primary);
+        margin-bottom: 10px;
+    }
+
+    .product-card p {
+        color: #d0d0d0;
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+
+    .product-price {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 20px;
+    }
+
+    .btn-buy-product {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        background-color: var(--accent-color);
+        color: var(--accent-text);
+        text-align: center;
+        text-decoration: none;
+        font-weight: 600;
+        border-radius: 25px;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+    }
+
+    .btn-buy-product:hover {
+        opacity: 0.9;
+    }
+
+    /* Seção de Serviços & Orçamento */
+    .services-section {
+        background-color: var(--bg-section-alt);
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 28px;
+    }
+
+    .service-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        padding: 35px 30px;
+        border-radius: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        backdrop-filter: blur(8px);
+    }
+
+    .service-card h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.4rem;
+        margin-bottom: 12px;
+        color: var(--text-primary);
+    }
+
+    .service-card p {
+        color: var(--text-muted);
+        margin-bottom: 25px;
+        font-size: 0.9rem;
+    }
+
+    .service-price {
+        font-size: 1.7rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 8px;
+    }
+
+    .payment-methods {
+        font-size: 0.8rem;
+        color: #bbbbbb;
+        margin-bottom: 25px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .payment-link {
+        color: var(--text-primary);
+        font-weight: 700;
+        cursor: pointer;
+        text-decoration: underline;
+        transition: color 0.3s ease;
+    }
+
+    .payment-link:hover {
+        color: #cccccc;
+    }
+
+    .btn-pay {
+        display: block;
+        width: 100%;
+        padding: 14px;
+        background-color: var(--accent-color);
+        color: var(--accent-text);
+        text-align: center;
+        text-decoration: none;
+        font-weight: 600;
+        border-radius: 30px;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-pay:hover {
+        opacity: 0.9;
+    }
+
+    /* Seção Contato */
+    .contact-section {
+        background-color: rgba(0, 0, 0, 0.4);
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .contact-item {
+        background-color: rgba(240, 240, 240, 0.9);
+        border: 1px solid #d0d0d0;
+        padding: 25px;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+    }
+
+    .contact-item span {
+        font-size: 0.75rem;
+        color: #444444;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-weight: 700;
+    }
+
+    .contact-item a {
+        font-size: 1.1rem;
+        color: #111111;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .contact-item a:hover {
+        color: #444444;
+        text-decoration: underline;
+    }
+
+    /* Seção Institucional */
+    .inst-section {
+        background-color: var(--bg-section-alt);
+        border-top: 1px solid var(--border-color);
+    }
+
+    .inst-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+    }
+
+    .inst-card {
+        background-color: var(--bg-card);
+        border: 1px solid var(--border-color);
+        padding: 30px;
+        border-radius: 12px;
+        backdrop-filter: blur(8px);
+    }
+
+    .inst-card h4 {
+        color: var(--text-primary);
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+        font-family: 'Playfair Display', serif;
+    }
+
+    .inst-card p {
+        color: #cccccc;
+        font-size: 0.92rem;
+        line-height: 1.6;
+    }
+
+    /* Modais */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(5px);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content {
+        background-color: #141414;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 30px;
+        border-radius: 16px;
+        max-width: 550px;
+        width: 90%;
+        max-height: 85vh;
+        overflow-y: auto;
+        position: relative;
+    }
+
+    .modal-content h4 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: var(--text-primary);
+    }
+
+    .modal-content p {
+        color: #cccccc;
+        font-size: 0.95rem;
+        margin-bottom: 12px;
+    }
+
+    .pix-key-box {
+        background-color: #0a0a0a;
+        border: 1px dashed rgba(255, 255, 255, 0.3);
+        padding: 12px;
+        border-radius: 8px;
+        font-family: monospace;
+        font-size: 1.05rem;
+        color: var(--text-primary);
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .btn-copy {
+        background-color: var(--accent-color);
+        color: var(--accent-text);
+        border: none;
+        padding: 10px 20px;
+        border-radius: 20px;
+        font-weight: 600;
+        cursor: pointer;
+        display: block;
+        margin: 10px auto 0 auto;
+    }
+
+    .close-modal {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        color: #888888;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    /* Rodapé / Chamada Final */
+    footer {
+        padding: 50px 8% 30px 8%;
+        background-color: rgba(5, 5, 5, 0.95);
+        border-top: 1px solid var(--border-color);
+        text-align: center;
+    }
+
+    .footer-final-call {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.6rem;
+        color: var(--text-primary);
+        margin-bottom: 25px;
+        font-weight: 700;
+    }
+
+    .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+
+    .footer-links a {
+        color: #cccccc;
+        text-decoration: none;
+        font-size: 0.85rem;
+        transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+        color: var(--text-primary);
+    }
+
+    .footer-copy {
+        color: #888888;
+        font-size: 0.8rem;
+    }
+
+    /* ======================================================
+       ASSISTENTE DE ATENDIMENTO VIRTUAL ESPECIALISTA EM TI
+       ====================================================== */
+    #bot-container {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .bot-launcher {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: #0d0d15;
+        border: 2px solid var(--cyber-cyan);
+        box-shadow: 0 0 25px rgba(0, 240, 255, 0.5), inset 0 0 12px rgba(255, 255, 255, 0.3);
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .bot-launcher img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    .bot-launcher:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 35px rgba(0, 240, 255, 0.85);
+    }
+
+    .bot-launcher-badge {
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        width: 16px;
+        height: 16px;
+        background-color: #00ff66;
+        border-radius: 50%;
+        border: 2px solid #000;
+        box-shadow: 0 0 10px #00ff66;
+        z-index: 2;
+    }
+
+    .bot-card {
+        display: none;
+        width: 380px;
+        max-width: calc(100vw - 30px);
+        background: linear-gradient(165deg, rgba(16, 22, 34, 0.96) 0%, rgba(8, 12, 20, 0.98) 100%);
+        border: 1px solid rgba(0, 240, 255, 0.4);
+        border-radius: 24px;
+        backdrop-filter: blur(20px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 240, 255, 0.25);
+        flex-direction: column;
+        overflow: hidden;
+        margin-bottom: 15px;
+        animation: botSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes botSlideUp {
+        from { opacity: 0; transform: translateY(25px) scale(0.92); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .bot-header {
+        background: linear-gradient(90deg, rgba(25, 40, 65, 0.95), rgba(12, 20, 35, 0.98));
+        padding: 16px 20px;
+        border-bottom: 1px solid rgba(0, 240, 255, 0.25);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .bot-title-group {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .bot-status-dot {
+        width: 9px;
+        height: 9px;
+        background-color: #00ff66;
+        border-radius: 50%;
+        box-shadow: 0 0 10px #00ff66;
+    }
+
+    .bot-title-text h4 {
+        font-size: 1rem;
+        color: #ffffff;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+
+    .bot-title-text span {
+        font-size: 0.74rem;
+        color: var(--cyber-cyan);
+        display: block;
+        font-weight: 500;
+    }
+
+    .bot-close-btn {
+        background: none;
+        border: none;
+        color: #8888aa;
+        font-size: 1.4rem;
+        cursor: pointer;
+        transition: color 0.2s;
+    }
+
+    .bot-close-btn:hover {
+        color: #ffffff;
+    }
+
+    .bot-avatar-stage {
+        height: 150px;
+        background: radial-gradient(circle at 50% 40%, rgba(0, 240, 255, 0.15) 0%, rgba(5, 10, 20, 0.95) 75%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .bot-avatar-stage img {
+        width: 105px;
+        height: 105px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--cyber-cyan);
+        box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
+    }
+
+    .bot-body {
+        padding: 18px;
+        max-height: 280px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .bot-speech-bubble {
+        background: rgba(26, 40, 65, 0.75);
+        border: 1px solid rgba(0, 240, 255, 0.35);
+        border-radius: 14px 14px 14px 3px;
+        padding: 14px 16px;
+        color: #f5f5f5;
+        font-size: 0.88rem;
+        line-height: 1.5;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .bot-input-area {
+        padding: 12px 18px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        gap: 8px;
+        background: rgba(10, 14, 22, 0.95);
+    }
+
+    .bot-input-field {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 20px;
+        padding: 10px 14px;
+        color: #ffffff;
+        font-size: 0.85rem;
+        outline: none;
+    }
+
+    .bot-input-field:focus {
+        border-color: var(--cyber-cyan);
+    }
+
+    .bot-send-btn {
+        background: var(--cyber-cyan);
+        color: #000;
+        border: none;
+        border-radius: 20px;
+        padding: 0 16px;
+        font-weight: 700;
+        font-size: 0.82rem;
+        cursor: pointer;
+        transition: opacity 0.2s;
+    }
+
+    .bot-send-btn:hover {
+        opacity: 0.85;
+    }
+
+    .bot-controls {
+        padding: 8px 18px 14px 18px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(10, 14, 22, 0.95);
+    }
+
+    .bot-voice-toggle {
+        background: rgba(0, 240, 255, 0.15);
+        border: 1px solid var(--cyber-cyan);
+        color: var(--cyber-cyan);
+        border-radius: 20px;
+        padding: 5px 10px;
+        font-size: 0.72rem;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .bot-voice-toggle.active {
+        background: var(--cyber-cyan);
+        color: #000;
+    }
+</style>
 </head>
 <body>
 
-    <!-- Navegação Superior -->
-    <header>
-        <nav>
-            <div class="logo">Técnica de Sistemas</div>
+<!-- Cabeçalho -->
+<header>
+    <div class="logo" id="displayHeaderLogo">Carla Miter Tech</div>
+    <nav>
+        <a href="#perfil">Início</a>
+        <a href="#servicos-copy">Serviços</a>
+        <a href="#beneficios">Vantagens</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#contato">Contato</a>
+
+        <a href="https://www.instagram.com/carlamiter" target="_blank" class="nav-insta" id="displayNavInstaLink">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <span id="displayNavInsta">@carlamiter</span>
+        </a>
+    </nav>
+</header>
+
+<!-- 1. TOPO DO SITE (Hero Section) -->
+<section id="perfil" class="hero">
+    <div class="hero-content-wrapper">
+        <div class="profile-photo-container">
+            <img id="displayProfilePhoto" src="" alt="Carla Miter">
+        </div>
+        <div class="hero-text-content">
+            <div class="hero-tag">Tecnologia, Sistemas & Negócios</div>
+            <h1 id="displayHeroTitle">Sua empresa forte na internet e regularizada para crescer</h1>
+            <h2 id="displayHeroSubtitle">Transformamos o seu negócio com presença digital profissional, aplicativos sob medida e descomplicação completa na abertura de MEI e suporte técnico.</h2>
+            <a href="#" target="_blank" id="displayHeroCta" class="btn-hero-cta">Falar no WhatsApp</a>
+        </div>
+    </div>
+</section>
+
+<!-- 2. SEÇÃO DE SERVIÇOS (Os 3 Pilares) -->
+<section id="servicos-copy" class="products-section">
+    <h2 class="section-title">Nossas Soluções para o seu Negócio</h2>
+    <p class="section-subtitle">Tecnologia descomplicada e voltada para resultados práticos:</p>
+
+    <div class="skills-grid">
+        <div class="skill-card">
+            <h4>Criação de Web Sites</h4>
+            <p>Sites profissionais, modernos e ultrarrápidos, acessados direto pelo celular e otimizados para aparecer no Google.</p>
+        </div>
+        <div class="skill-card">
+            <h4>Desenvolvimento de Aplicativos (Apps)</h4>
+            <p>Soluções sob medida para automatizar os processos do seu negócio e engajar o seu público com eficiência.</p>
+        </div>
+        <div class="skill-card">
+            <h4>Atendimento e Abertura de MEI</h4>
+            <p>Orientação completa e descomplicação para você sair da informalidade, emitir nota fiscal e garantir direitos previdenciários.</p>
+        </div>
+    </div>
+</section>
+
+<!-- 3. POR QUE ESCOLHER NOSSOS SERVIÇOS -->
+<section id="beneficios" class="media-section">
+    <h2 class="section-title">Por Que Escolher Nossos Serviços?</h2>
+    <p class="section-subtitle">Diferenciais pensados para o sucesso do microempreendedor:</p>
+
+    <div class="skills-grid">
+        <div class="skill-card">
+            <h4>Agilidade nos Processos</h4>
+            <p>Entregas rápidas e eficientes para você não perder tempo e colocar suas ideias em prática imediatamente.</p>
+        </div>
+        <div class="skill-card">
+            <h4>Suporte Direto sem Intermediários</h4>
+            <p>Atendimento humanizado, transparente e direto com quem realmente entende e resolve o seu problema técnico.</p>
+        </div>
+        <div class="skill-card">
+            <h4>Foco no Crescimento do Pequeno Negócio</h4>
+            <p>Estratégias e ferramentas acessíveis planejadas sob medida para impulsionar o faturamento e a organização da sua empresa.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Seção: Mídias & Destaques -->
+<section id="midias" class="products-section">
+    <h2 class="section-title">Galeria & Destaques</h2>
+    <p class="section-subtitle">Confira demonstrações em vídeo, avisos e imagens dos projetos e novidades.</p>
+    <div class="media-grid" id="mediaGrid"></div>
+</section>
+
+<!-- Seção: Produtos Digitais & Soluções Prontas -->
+<section id="produtos" class="media-section">
+    <h2 class="section-title">Produtos & Soluções Prontas</h2>
+    <p class="section-subtitle">Adquira soluções prontas desenvolvidas para otimizar sua rotina e seu negócio.</p>
+    <div class="products-grid" id="productsGrid"></div>
+</section>
+
+<!-- Seção de Orçamento / Serviços -->
+<section id="servicos" class="products-section">
+    <h2 class="section-title">Serviços & Orçamento</h2>
+    <p class="section-subtitle">Entre em contato para solicitar um orçamento personalizado conforme sua necessidade.</p>
+    <div class="services-grid">
+        <div class="service-card">
             <div>
-                <a href="#solucoes">Soluções</a>
-                <a href="#processo">Como Trabalhamos</a>
-                <a href="#contato">Contato</a>
+                <h3>Desenvolvimento de Sistemas & Soluções Digitais</h3>
+                <p>Desenvolvimento sob medida, criação de cartões interativos, automatização de planilhas e documentação técnica.</p>
+                <div class="service-price">A Combinar</div>
+                <div class="payment-methods">
+                    <span class="payment-link" onclick="openModal('pixModal')">PIX</span>
+                </div>
             </div>
-        </nav>
-    </header>
-
-    <!-- Seção de Abertura / Hero -->
-    <section class="hero">
-        <div class="container">
-            <h1>Engenharia de Sistemas e Soluções Corporativas para o seu Crescimento</h1>
-            <p>Desenvolvimento de plataformas web, aplicativos sob medida e consultoria especializada para regularização e abertura de MEI. Estrutura sólida para consolidar a presença digital da sua empresa.</p>
-            <a href="#contato" class="btn-cta">Agendar Consultoria Técnica</a>
+            <a href="#" target="_blank" id="displayServiceQuoteBtn" class="btn-pay">Solicitar Orçamento</a>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Seção de Soluções / Serviços -->
-    <section id="solucoes">
-        <div class="container">
-            <h2 style="text-align: center;">Nossas Soluções Empresariais</h2>
-            <div class="grid-servicos">
-                
-                <!-- Serviço 1 -->
-                <div class="card-servico">
-                    <h3>Arquitetura e Desenvolvimento de Websites Corporativos de Alta Performance</h3>
-                    <p>Projetamos ecossistemas web robustos e de alta conversão, alinhando estética funcional, estabilidade operacional e conformidade com os mais rigorosos padrões de segurança da informação. Nossas soluções são concebidas para assegurar máxima disponibilidade, otimização avançada para mecanismos de busca (SEO) e uma experiência de navegação impecável em qualquer dispositivo, consolidando a credibilidade digital da sua marca perante o mercado.</p>
-                    <ul class="bullet-list">
-                        <li><strong>Arquitetura front-end moderna e responsiva:</strong> Focada em tempos de carregamento otimizados e usabilidade multiplataforma.</li>
-                        <li><strong>Estruturação técnica para indexação orgânica (SEO técnico):</strong> Conformidade com as diretrizes de acessibilidade e performance.</li>
-                        <li><strong>Implantação de protocolos avançados de criptografia:</strong> Blindagem contra vulnerabilidades web (SSL/TLS e segurança de ponta a ponta).</li>
-                    </ul>
+<!-- Seção Contato -->
+<section id="contato" class="media-section">
+    <h2 class="section-title">Contato</h2>
+    <p class="section-subtitle">Entre em contato ou acompanhe o trabalho pelas redes sociais:</p>
+    <div class="contact-grid">
+        <div class="contact-item">
+            <span>WhatsApp / Telefone</span>
+            <a href="#" id="displayContactPhoneLink"><span id="displayContactPhone">(31) 97564-4571</span></a>
+        </div>
+        <div class="contact-item">
+            <span>E-mail</span>
+            <a href="#" id="displayContactEmailLink"><span id="displayContactEmail">carlamiter038@gmail.com</span></a>
+        </div>
+        <div class="contact-item">
+            <span>Instagram</span>
+            <a href="#" target="_blank" id="displayContactInstaLink"><span id="displayContactInsta">@carlamiter</span></a>
+        </div>
+    </div>
+</section>
+
+<!-- MODAIS -->
+<div id="pixModal" class="modal">
+    <div class="modal-content" style="text-align: center;">
+        <span class="close-modal" onclick="closeModal('pixModal')">&times;</span>
+        <h4>Chave PIX</h4>
+        <p style="color: #aaaaaa; font-size: 0.9rem;">Utilize a chave abaixo para pagamentos ou depósitos:</p>
+        <div class="pix-key-box" id="pixKey">carlapemi@outlook.com</div>
+        <button class="btn-copy" onclick="copyPixKey()">Copiar Chave PIX</button>
+    </div>
+</div>
+
+<div id="infoGeneraisModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal('infoGeneraisModal')">&times;</span>
+        <h4>Informações Gerais</h4>
+        <p><strong>Atendimento:</strong> Segunda a Sexta, das 08h às 18h.</p>
+        <p><strong>Escopo de Serviços:</strong> Prestação de serviços autônomos de TI, consultoria técnica para sistemas, desenvolvimento de cartões digitais e assessoria na abertura de MEI.</p>
+    </div>
+</div>
+
+<div id="avisoPrivacidadeModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal('avisoPrivacidadeModal')">&times;</span>
+        <h4>Aviso de Privacidade</h4>
+        <p>Respeitamos a sua privacidade. Todos os dados fornecidos no formulário de contato ou via WhatsApp são utilizados estritamente para a prestação dos serviços solicitados.</p>
+    </div>
+</div>
+
+<div id="canalEticaModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal('canalEticaModal')">&times;</span>
+        <h4>Canal de Ética</h4>
+        <p><strong>Canal de Ética:</strong> Para dúvidas éticas ou sugestões referentes aos serviços prestados, envie um e-mail com o assunto correspondente.</p>
+    </div>
+</div>
+
+<div id="centralPrivacidadeModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal('centralPrivacidadeModal')">&times;</span>
+        <h4>Central de Privacidade</h4>
+        <p>Você tem o direito de solicitar a confirmação, o acesso ou a exclusão de seus dados pessoais em nossos registros a qualquer momento.</p>
+    </div>
+</div>
+
+<div id="cookiesModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal('cookiesModal')">&times;</span>
+        <h4>Preferência de Cookies</h4>
+        <p>Este site utiliza apenas cookies essenciais para o correto funcionamento das navegações da página e modais.</p>
+    </div>
+</div>
+
+<!-- 4. RODAPÉ / CHAMADA FINAL -->
+<footer>
+    <div class="footer-final-call">
+        Não deixe para depois: tire sua ideia do papel e digitalize seu negócio hoje mesmo!
+    </div>
+    <div class="footer-links">
+        <a href="javascript:void(0)" onclick="openModal('infoGeneraisModal')">Informações gerais</a>
+        <a href="javascript:void(0)" onclick="openModal('avisoPrivacidadeModal')">Aviso de privacidade</a>
+        <a href="javascript:void(0)" onclick="openModal('centralPrivacidadeModal')">Central de privacidade</a>
+        <a href="javascript:void(0)" onclick="openModal('cookiesModal')">Preferência de cookies</a>
+        <a href="javascript:void(0)" onclick="openModal('canalEticaModal')">Canal de Ética</a>
+    </div>
+    <div class="footer-copy">
+        <p>&copy; <span id="displayFooterName">Carla Miter Tech</span> - Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<!-- ======================================================
+     ASSISTENTE DE ATENDIMENTO VIRTUAL (ATUALIZADO)
+     ====================================================== -->
+<div id="bot-container">
+    <div class="bot-card" id="botCard">
+        <div class="bot-header">
+            <div class="bot-title-group">
+                <div class="bot-status-dot"></div>
+                <div class="bot-title-text">
+                    <h4>Assistente Especialista em TI</h4>
+                    <span>Atendimento Online</span>
                 </div>
+            </div>
+            <button class="bot-close-btn" onclick="toggleBotCard()">&times;</button>
+        </div>
 
-                <!-- Serviço 2 -->
-                <div class="card-servico">
-                    <h3>Engenharia de Software e Soluções Aplicadas sob Medida</h3>
-                    <p>Desenvolvemos aplicações corporativas escaláveis e orientadas à automação de fluxos de trabalho críticos, reduzindo custos operacionais e eliminando gargalos produtivos. Nossos sistemas são projetados com foco na integridade e modularidade dos dados, permitindo a expansão tecnológica harmônica do seu negócio e a integração fluida com as ferramentas de gestão já utilizadas pela sua empresa.</p>
-                    <ul class="bullet-list">
-                        <li><strong>Concepção e codificação de softwares customizados:</strong> Automação de processos internos e regras de negócio complexas.</li>
-                        <li><strong>Arquitetura escalável:</strong> Orientada a microsserviços e bancos de dados seguros para o armazenamento e recuperação eficiente de informações.</li>
-                        <li><strong>Integração de APIs e sistemas legados:</strong> Realizada por meio de protocolos seguros, garantindo a interoperabilidade e a centralização de dados.</li>
-                    </ul>
-                </div>
+        <!-- Palco da Foto Real -->
+        <div class="bot-avatar-stage">
+            <img id="botAvatarImage" src="Foto.jpg" alt="Carla Miter">
+        </div>
 
-                <!-- Serviço 3 -->
-                <div class="card-servico">
-                    <h3>Consultoria Estratégica e Regularização Fiscal para Microempreendedores (MEI)</h3>
-                    <p>Oferecemos assessoria contábil e jurídica especializada para formalizar e estruturar o seu empreendimento com total segurança perante os órgãos reguladores. Garantimos que sua empresa opere em estrita conformidade com a legislação tributária vigente, habilitando-a para a emissão idônea de documentos fiscais e assegurando o pleno acesso aos benefícios e à proteção previdenciária empresarial.</p>
-                    <ul class="bullet-list">
-                        <li><strong>Abertura ágil e regularização completa:</strong> CNPJ formalizado junto aos sistemas da Receita Federal e órgãos municipais/estaduais competentes.</li>
-                        <li><strong>Orientação técnica para emissão de Notas Fiscais:</strong> Suporte em NFS-e/NF-e e gestão adequada das obrigações acessórias mensais (DAS).</li>
-                        <li><strong>Planejamento de cobertura e regularização previdenciária:</strong> Assegurando estabilidade legal e direitos de seguridade social ao empreendedor.</li>
-                    </ul>
-                </div>
-
+        <!-- Conteúdo do Chat -->
+        <div class="bot-body" id="botBody">
+            <div class="bot-speech-bubble" id="botBubbleText">
+                Olá, seja bem-vindo(a). Agradecemos o seu contato.<br><br>
+                Para que possamos compreender a complexidade do seu projeto e fornecer uma estimativa precisa, por favor, responda brevemente:<br><br>
+                <strong>1. Qual é o nome da sua empresa ou do seu projeto?</strong>
             </div>
         </div>
-    </section>
 
-    <!-- Seção do Fluxo de Trabalho / Processo -->
-    <section id="processo" style="background-color: #f1f2f6;">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 40px;">Nossos Próximos Passos</h2>
-            <ul class="prazos-list">
-                <li>
-                    <strong>Etapa 1. Alinhamento e Diagnóstico Inicial</strong><br>
-                    Entendimento aprofundado dos requisitos do cliente para mapear as necessidades técnicas e burocráticas da empresa.
-                </li>
-                <li>
-                    <strong>Etapa 2. Proposta e Planejamento Estratégico</strong><br>
-                    Definição clara do escopo do projeto, cronogramas de entrega, prazos regimentais e orçamento formal.
-                </li>
-                <li>
-                    <strong>Etapa 3. Desenvolvimento e Homologação</strong><br>
-                    Fase de criação e execução de testes rigorosos da solução digital ou tramitação segura do processo de regularização do MEI.
-                </li>
-                <li>
-                    <strong>Etapa 4. Entrega e Suporte Operacional</strong><br>
-                    Implantação assistida do projeto no ambiente produtivo e início do suporte técnico e consultivo contínuo.
-                </li>
-            </ul>
+        <!-- Área de Entrada de Mensagem -->
+        <div class="bot-input-area">
+            <input type="text" id="botUserInput" class="bot-input-field" placeholder="Digite sua resposta aqui..." onkeypress="handleBotKeypress(event)">
+            <button class="bot-send-btn" onclick="processUserResponse()">Enviar</button>
         </div>
-    </section>
 
-    <!-- Seção de Contato -->
-    <section id="contato">
-        <div class="container">
-            <h2 style="text-align: center;">Inicie seu Projeto Tecnológico ou Regularização</h2>
-            <p style="text-align: center; color: #7f8c8d; margin-bottom: 30px;">Preencha os campos abaixo para solicitar uma análise preliminar com nossa equipe especializada.</p>
+        <!-- Controles -->
+        <div class="bot-controls">
+            <button class="bot-voice-toggle active" id="btnVoiceToggle" onclick="toggleVoice()">
+                🔊 Voz: Ativada
+            </button>
+            <span style="font-size: 0.7rem; color: #888;">Especialista em TI</span>
+        </div>
+    </div>
+
+    <!-- Botão Flutuante -->
+    <div class="bot-launcher" onclick="toggleBotCard()" title="Falar com a Assistente de TI">
+        <div class="bot-launcher-badge"></div>
+        <img id="botLauncherImage" src="Foto.jpg" alt="Carla Miter">
+    </div>
+</div>
+
+<script>
+    /* --- DADOS ESTÁTICOS DO SITE --- */
+    const siteInfo = {
+        name: "Carla Miter Tech",
+        subtitle: "Técnica de Sistemas, Contadora Parceira & Designer na Empresa. Soluções computacionais e desenvolvimento web sob medida.",
+        phone: "5531975644571",
+        phoneFormatted: "(31) 97564-4571",
+        email: "carlamiter038@gmail.com",
+        insta: "@carlamiter",
+        pix: "carlapemi@outlook.com",
+        vision: "focada em criar soluções simples, acessíveis e funcionais para o dia a dia. Estou sempre em constante atualização e acompanhando as tendências da área de tecnologia.",
+        photo: "Foto.jpg"
+    };
+
+    const mediaList = [
+        {
+            id: 101,
+            title: "Demonstração de Sistemas e PWAs",
+            type: "image",
+            url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+            desc: "Soluções de software desenvolvidas para agilizar processos e otimizar rotinas de trabalho."
+        }
+    ];
+
+    const products = [
+        {
+            id: 1,
+            title: "App Web Táxify",
+            category: "App Web",
+            desc: "Aplicativo web voltado para motoristas gerenciarem corridas, despesas e faturamento diário de forma simples e direta no celular.",
+            price: "Clique e adquira"
+        },
+        {
+            id: 2,
+            title: "Agenda Diária [PWA]",
+            category: "Agenda / PWA",
+            desc: "Organização pessoal simples, completa e 100% offline. Módulos interativos de tarefas, calendário, finanças, metas e hábitos no seu celular.",
+            price: "Consulte / Adquira",
+            image: "1000381994.jpg"
+        },
+        {
+            id: 3,
+            title: "Aplicativo de Timbre para Baixista",
+            category: "Áudio / PWA",
+            desc: "Modelador de baixo, DSP engine, afinador, analisador VU & Clip e plataforma de produção e monitoramento ao vivo para baixistas.",
+            price: "Consulte / Adquira",
+            image: "1000382382.jpg"
+        },
+        {
+            id: 4,
+            title: "Página de Links / Bio Personalizada",
+            category: "Link/Bio",
+            desc: "Página leve, ultra rápida e responsiva para colocar na bio do seu Instagram com todos os seus contatos.",
+            price: "A partir de R$ 39,90"
+        }
+    ];
+
+    function renderSiteInfo() {
+        document.getElementById('pageTitle').innerText = `${siteInfo.name} - Portfólio, Serviços & Produtos`;
+        document.getElementById('displayHeaderLogo').innerText = siteInfo.name;
+        document.getElementById('displayHeroTitle').innerText = "Sua empresa forte na internet e regularizada para crescer";
+        document.getElementById('displayHeroSubtitle').innerText = "Transformamos o seu negócio com presença digital profissional, aplicativos sob medida e descomplicação completa na abertura de MEI e suporte técnico.";
+        document.getElementById('displayProfilePhoto').src = siteInfo.photo;
+        document.getElementById('botAvatarImage').src = siteInfo.photo;
+        document.getElementById('botLauncherImage').src = siteInfo.photo;
+        document.getElementById('displayContactPhone').innerText = siteInfo.phoneFormatted;
+        document.getElementById('displayContactEmail').innerText = siteInfo.email;
+        document.getElementById('displayContactInsta').innerText = siteInfo.insta;
+        document.getElementById('displayNavInsta').innerText = siteInfo.insta;
+        document.getElementById('displayFooterName').innerText = siteInfo.name;
+        document.getElementById('pixKey').innerText = siteInfo.pix;
+
+        const rawPhone = siteInfo.phone;
+        document.getElementById('displayContactPhoneLink').href = `tel:${rawPhone}`;
+        document.getElementById('displayContactEmailLink').href = `mailto:${siteInfo.email}`;
+  
+        const cleanInsta = siteInfo.insta.replace('@', '');
+        const instaUrl = `https://www.instagram.com/${cleanInsta}`;
+        document.getElementById('displayContactInstaLink').href = instaUrl;
+        document.getElementById('displayNavInstaLink').href = instaUrl;
+
+        const ctaUrl = `https://wa.me/${rawPhone}?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Carlamitertech.`;
+        document.getElementById('displayHeroCta').href = ctaUrl;
+        document.getElementById('displayServiceQuoteBtn').href = ctaUrl;
+    }
+
+    function renderMedia() {
+        const grid = document.getElementById('mediaGrid');
+        grid.innerHTML = '';
+
+        if (mediaList.length === 0) {
+            grid.innerHTML = '<p style="color:#888; grid-column: 1/-1;">Nenhuma mídia cadastrada no momento.</p>';
+            return;
+        }
+
+        mediaList.forEach(m => {
+            const card = document.createElement('div');
+            card.className = 'media-card';
+            card.innerHTML = `
+                <div class="media-container"><img src="${m.url}" alt="${m.title}" loading="lazy"></div>
+                <div class="media-info">
+                    <h4>${m.title}</h4>
+                    ${m.desc ? `<p>${m.desc}</p>` : ''}
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+    }
+
+    function renderProducts() {
+        const grid = document.getElementById('productsGrid');
+        grid.innerHTML = '';
+
+        if (products.length === 0) {
+            grid.innerHTML = '<p style="color:#888; grid-column: 1/-1;">Nenhum produto cadastrado no momento.</p>';
+            return;
+        }
+
+        products.forEach(p => {
+            const card = document.createElement('div');
+            card.className = 'product-card';
             
-            <div class="form-contato">
-                <form action="#" method="POST">
-                    <div class="form-group">
-                        <label for="nome">Nome Completo:</label>
-                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
-                    </div>
+            let imageHtml = p.image ? `<div class="product-image-container"><img src="${p.image}" alt="${p.title}" loading="lazy"></div>` : '';
 
-                    <div class="form-group">
-                        <label for="empresa">Nome da Empresa ou Projeto:</label>
-                        <input type="text" id="empresa" name="empresa" placeholder="Nome do seu negócio" required>
-                    </div>
+            card.innerHTML = `
+                <div>
+                    ${imageHtml}
+                    <span class="product-badge">${p.category}</span>
+                    <h3>${p.title}</h3>
+                    <p>${p.desc}</p>
+                </div>
+                <div>
+                    <div class="product-price">${p.price}</div>
+                    <button class="btn-buy-product" onclick="iniciarCompra(${p.id})">Comprar / Adquirir</button>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+    }
 
-                    <div class="form-group">
-                        <label for="servico">Escopo de Interesse Principal:</label>
-                        <select id="servico" name="servico" required>
-                            <option value="">Selecione uma opção...</option>
-                            <option value="website">Desenvolvimento de Website Institucional</option>
-                            <option value="app">Engenharia e Criação de Aplicativo (App)</option>
-                            <option value="mei">Consultoria para Abertura e Regularização de MEI</option>
-                        </select>
-                    </div>
+    async function iniciarCompra(productId) {
+        try {
+            const product = products.find(p => p.id === productId);
+            const msg = encodeURIComponent(`Olá! Tenho interesse em adquirir o produto: ${product.title} (${product.price}).`);
+            window.open(`https://wa.me/${siteInfo.phone}?text=${msg}`, '_blank');
+        } catch (error) {
+            console.error('Erro ao processar checkout:', error);
+            alert('Não foi possível iniciar o checkout no momento.');
+        }
+    }
 
-                    <div class="form-group">
-                        <label for="mensagem">Desafio ou Objetivo Principal:</label>
-                        <textarea id="mensagem" name="mensagem" rows="4" placeholder="Descreva brevemente a necessidade técnica ou fiscal da sua empresa" required></textarea>
-                    </div>
+    function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+    function closeModal(id) { document.getElementById(id).style.display = 'none'; }
 
-                    <button type="submit" class="btn-cta" style="width: 100%; border: none; cursor: pointer; text-align: center;">Enviar Solicitação de Análise</button>
-                    
-                    <div class="lgpd-aviso">
-                        Seus dados são tratados com total confidencialidade, em estrita conformidade com a LGPD, sendo utilizados exclusivamente para o retorno técnico do seu atendimento.
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
+    function copyPixKey() {
+        const pixKey = document.getElementById('pixKey').innerText;
+        navigator.clipboard.writeText(pixKey).then(() => {
+            alert('Chave PIX copiada para a área de transferência!');
+        }).catch(() => alert('Chave PIX: ' + pixKey));
+    }
 
-    <!-- Rodapé -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Técnica de Sistemas. Todos os direitos reservados.</p>
-            <p><a href="#solucoes">Soluções</a> | <a href="#processo">Como Trabalhamos</a> | <a href="#contato">Contato e Privacidade</a></p>
-        </div>
-    </footer>
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) event.target.style.display = "none";
+    }
 
+    /* --- LÓGICA DO ATENDIMENTO VIRTUAL --- */
+    let voiceEnabled = true;
+    let botState = 0; // 0: projeto/empresa, 1: necessidade (tecnologia/MEI), 2: desafio/objetivo
+    let clientData = { company: '', need: '', goal: '' };
+
+    function toggleBotCard() {
+        const card = document.getElementById('botCard');
+        if (card.style.display === 'none' || card.style.display === '') {
+            card.style.display = 'flex';
+        } else {
+            card.style.display = 'none';
+            stopSpeech();
+        }
+    }
+
+    function toggleVoice() {
+        voiceEnabled = !voiceEnabled;
+        const btn = document.getElementById('btnVoiceToggle');
+        if (voiceEnabled) {
+            btn.classList.add('active');
+            btn.innerHTML = '🔊 Voz: Ativada';
+        } else {
+            btn.classList.remove('active');
+            btn.innerHTML = '🔇 Voz: Desativada';
+            stopSpeech();
+        }
+    }
+
+    function handleBotKeypress(event) {
+        if (event.key === 'Enter') {
+            processUserResponse();
+        }
+    }
+
+    function appendMessage(sender, text) {
+        const body = document.getElementById('botBody');
+        const bubble = document.createElement('div');
+        bubble.className = 'bot-speech-bubble';
+        if (sender === 'user') {
+            bubble.style.background = 'rgba(0, 240, 255, 0.15)';
+            bubble.style.borderColor = 'var(--cyber-cyan)';
+            bubble.style.textAlign = 'right';
+        }
+        bubble.innerHTML = text;
+        body.appendChild(bubble);
+        body.scrollTop = body.scrollHeight;
+    }
+
+    function processUserResponse() {
+        const inputField = document.getElementById('botUserInput');
+        const val = inputField.value.trim();
+        if (!val) return;
+
+        appendMessage('user', val);
+        inputField.value = '';
+
+        let responseText = "";
+        const lowerVal = val.toLowerCase();
+
+        // Regra de preço/orçamento específico
+        if (lowerVal.includes('preço') || lowerVal.includes('quanto custa') || lowerVal.includes('valor') || lowerVal.includes('orçamento')) {
+            responseText = "O especialista técnico poderá analisar o seu caso em detalhes na nossa reunião. Vamos agendar?";
+            appendMessage('bot', responseText);
+            speakText(responseText);
+            return;
+        }
+
+        if (botState === 0) {
+            clientData.company = val;
+            botState = 1;
+            responseText = `Perfeito! Entendido.<br><br><strong>2. Você necessita de uma solução em tecnologia (Site/App) ou suporte na área fiscal (Abertura de MEI)?</strong>`;
+        } else if (botState === 1) {
+            clientData.need = val;
+            botState = 2;
+            responseText = `Ótimo.<br><br><strong>3. Qual é o principal desafio ou objetivo que você busca resolver neste momento?</strong>`;
+        } else if (botState === 2) {
+            clientData.goal = val;
+            botState = 3;
+            responseText = `Com base nas suas respostas, nosso especialista fará uma análise preliminar antes de iniciar a conversa. Aguardamos o seu retorno.<br><br><a href="https://wa.me/${siteInfo.phone}?text=${encodeURIComponent('Olá! Empresa/Projeto: ' + clientData.company + ' | Necessidade: ' + clientData.need + ' | Objetivo: ' + clientData.goal)}" target="_blank" style="color: var(--cyber-cyan); font-weight: 700; text-decoration: underline;">Clique aqui para enviar os dados no WhatsApp &rsaquo;</a>`;
+        } else {
+            responseText = "Seus dados já foram registrados. Para prosseguir, clique no link do WhatsApp acima e fale diretamente com o especialista!";
+        }
+
+        appendMessage('bot', responseText);
+        speakText(responseText.replace(/<[^>]*>?/gm, ''));
+    }
+
+    function speakText(text) {
+        stopSpeech();
+        if (!voiceEnabled || !('speechSynthesis' in window)) return;
+
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'pt-BR';
+        utterance.rate = 1.05;
+        utterance.pitch = 1.15;
+
+        const voices = window.speechSynthesis.getVoices();
+        const ptVoice = voices.find(v => v.lang.includes('pt') && (v.name.includes('Luciana') || v.name.includes('Maria') || v.name.includes('Google') || v.name.includes('Female')));
+        if (ptVoice) utterance.voice = ptVoice;
+
+        window.speechSynthesis.speak(utterance);
+    }
+
+    function stopSpeech() {
+        if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    }
+
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        renderSiteInfo();
+        renderMedia();
+        renderProducts();
+    });
+</script>
 </body>
 </html>
-

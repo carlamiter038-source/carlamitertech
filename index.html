@@ -19,7 +19,7 @@
 <!-- Fontes do Google -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
     /* Variáveis de Tema Customizáveis */
     :root {
@@ -31,6 +31,7 @@
         --text-primary: #f3f3f3;
         --text-muted: #d0d0d0;
         --border-color: rgba(255, 255, 255, 0.15);
+        --cyber-cyan: #00f0ff;
     }
 
     /* Estilos Gerais */
@@ -660,6 +661,231 @@
         color: #888888;
         font-size: 0.8rem;
     }
+
+    /* ======================================================
+       DESIGN DA ASSISTENTE DA CARLAMITERTECH (FOTO REAL)
+       ====================================================== */
+    #bot-container {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    /* Botão Flutuante Com Foto */
+    .bot-launcher {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: #0d0d15;
+        border: 2px solid var(--cyber-cyan);
+        box-shadow: 0 0 25px rgba(0, 240, 255, 0.5), inset 0 0 12px rgba(255, 255, 255, 0.3);
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .bot-launcher img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    .bot-launcher:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 35px rgba(0, 240, 255, 0.85);
+    }
+
+    .bot-launcher-badge {
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        width: 16px;
+        height: 16px;
+        background-color: #00ff66;
+        border-radius: 50%;
+        border: 2px solid #000;
+        box-shadow: 0 0 10px #00ff66;
+        z-index: 2;
+    }
+
+    /* Card da Assistente */
+    .bot-card {
+        display: none;
+        width: 380px;
+        max-width: calc(100vw - 30px);
+        background: linear-gradient(165deg, rgba(16, 22, 34, 0.96) 0%, rgba(8, 12, 20, 0.98) 100%);
+        border: 1px solid rgba(0, 240, 255, 0.4);
+        border-radius: 24px;
+        backdrop-filter: blur(20px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 240, 255, 0.25);
+        flex-direction: column;
+        overflow: hidden;
+        margin-bottom: 15px;
+        animation: botSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes botSlideUp {
+        from { opacity: 0; transform: translateY(25px) scale(0.92); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Cabeçalho */
+    .bot-header {
+        background: linear-gradient(90deg, rgba(25, 40, 65, 0.95), rgba(12, 20, 35, 0.98));
+        padding: 16px 20px;
+        border-bottom: 1px solid rgba(0, 240, 255, 0.25);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .bot-title-group {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .bot-status-dot {
+        width: 9px;
+        height: 9px;
+        background-color: #00ff66;
+        border-radius: 50%;
+        box-shadow: 0 0 10px #00ff66;
+    }
+
+    .bot-title-text h4 {
+        font-size: 1rem;
+        color: #ffffff;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+
+    .bot-title-text span {
+        font-size: 0.74rem;
+        color: var(--cyber-cyan);
+        display: block;
+        font-weight: 500;
+    }
+
+    .bot-close-btn {
+        background: none;
+        border: none;
+        color: #8888aa;
+        font-size: 1.4rem;
+        cursor: pointer;
+        transition: color 0.2s;
+    }
+
+    .bot-close-btn:hover {
+        color: #ffffff;
+    }
+
+    /* Palco da Foto de Perfil */
+    .bot-avatar-stage {
+        height: 220px;
+        background: radial-gradient(circle at 50% 40%, rgba(0, 240, 255, 0.15) 0%, rgba(5, 10, 20, 0.95) 75%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .bot-avatar-stage img {
+        width: 170px;
+        height: 170px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--cyber-cyan);
+        box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
+    }
+
+    /* Chat / Balão de Resposta */
+    .bot-body {
+        padding: 18px;
+        max-height: 290px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .bot-speech-bubble {
+        background: rgba(26, 40, 65, 0.75);
+        border: 1px solid rgba(0, 240, 255, 0.35);
+        border-radius: 14px 14px 14px 3px;
+        padding: 14px 16px;
+        color: #f5f5f5;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .bot-options-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+    }
+
+    .bot-option-btn {
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: #e2e8f0;
+        padding: 10px 14px;
+        border-radius: 10px;
+        font-size: 0.84rem;
+        text-align: left;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-weight: 500;
+    }
+
+    .bot-option-btn:hover {
+        background: linear-gradient(90deg, rgba(0, 240, 255, 0.25), rgba(0, 100, 255, 0.12));
+        border-color: var(--cyber-cyan);
+        color: #ffffff;
+        transform: translateX(4px);
+    }
+
+    .bot-controls {
+        padding: 12px 18px 16px 18px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        gap: 10px;
+    }
+
+    .bot-voice-toggle {
+        background: rgba(0, 240, 255, 0.15);
+        border: 1px solid var(--cyber-cyan);
+        color: var(--cyber-cyan);
+        border-radius: 20px;
+        padding: 7px 14px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.3s;
+    }
+
+    .bot-voice-toggle.active {
+        background: var(--cyber-cyan);
+        color: #000;
+        box-shadow: 0 0 12px rgba(0, 240, 255, 0.5);
+    }
 </style>
 </head>
 <body>
@@ -685,11 +911,9 @@
 <!-- Seção Principal / Perfil -->
 <section id="perfil" class="hero">
     <div class="hero-content-wrapper">
-        <!-- Foto de Perfil -->
         <div class="profile-photo-container">
             <img id="displayProfilePhoto" src="" alt="Carla Miter">
         </div>
-        <!-- Títulos e Apresentação -->
         <div class="hero-text-content">
             <div class="hero-tag">Desenvolvimento & Tecnologia</div>
             <h1 id="displayHeroTitle">Carla Miter Tech</h1>
@@ -736,7 +960,6 @@
 <section id="midias" class="media-section">
     <h2 class="section-title">Galeria & Destaques</h2>
     <p class="section-subtitle">Confira demonstrações em vídeo, avisos e imagens dos projetos e novidades.</p>
-
     <div class="media-grid" id="mediaGrid"></div>
 </section>
 
@@ -744,7 +967,6 @@
 <section id="produtos" class="products-section">
     <h2 class="section-title">Produtos & Soluções Prontas</h2>
     <p class="section-subtitle">Adquira soluções prontas desenvolvidas para otimizar sua rotina e seu negócio.</p>
-
     <div class="products-grid" id="productsGrid"></div>
 </section>
 
@@ -752,7 +974,6 @@
 <section id="servicos" class="services-section">
     <h2 class="section-title">Serviços & Orçamento</h2>
     <p class="section-subtitle">Entre em contato para solicitar um orçamento personalizado conforme sua necessidade.</p>
-
     <div class="services-grid">
         <div class="service-card">
             <div>
@@ -772,18 +993,15 @@
 <section id="contato" class="contact-section">
     <h2 class="section-title">Contato</h2>
     <p class="section-subtitle">Entre em contato ou acompanhe o trabalho pelas redes sociais:</p>
-
     <div class="contact-grid">
         <div class="contact-item">
             <span>WhatsApp / Telefone</span>
             <a href="#" id="displayContactPhoneLink"><span id="displayContactPhone">(31) 97564-4571</span></a>
         </div>
-  
         <div class="contact-item">
             <span>E-mail</span>
             <a href="#" id="displayContactEmailLink"><span id="displayContactEmail">carlamiter038@gmail.com</span></a>
         </div>
-
         <div class="contact-item">
             <span>Instagram</span>
             <a href="#" target="_blank" id="displayContactInstaLink"><span id="displayContactInsta">@carlamiter</span></a>
@@ -795,7 +1013,6 @@
 <section id="institucional" class="inst-section">
     <h2 class="section-title">Institucional</h2>
     <p class="section-subtitle">Nossos pilares fundamentais, visão de trabalho e compromisso com os clientes.</p>
-
     <div class="inst-grid">
         <div class="inst-card">
             <h4>Missão</h4>
@@ -812,9 +1029,7 @@
     </div>
 </section>
 
-<!-- MODAIS INFORMATIVOS -->
-
-<!-- Modal PIX -->
+<!-- MODAIS -->
 <div id="pixModal" class="modal">
     <div class="modal-content" style="text-align: center;">
         <span class="close-modal" onclick="closeModal('pixModal')">&times;</span>
@@ -825,14 +1040,12 @@
     </div>
 </div>
 
-<!-- Modais Informativos / Rodapé -->
 <div id="infoGeneraisModal" class="modal">
     <div class="modal-content">
         <span class="close-modal" onclick="closeModal('infoGeneraisModal')">&times;</span>
         <h4>Informações Gerais</h4>
         <p><strong>Atendimento:</strong> Segunda a Sexta, das 08h às 18h.</p>
         <p><strong>Escopo de Serviços:</strong> Prestação de serviços autônomos de TI, consultoria técnica para sistemas, desenvolvimento de cartões digitais e assessoria na abertura de MEI.</p>
-        <p><strong>Prazos:</strong> Definidos e acordados em proposta/orçamento prévio com cada cliente.</p>
     </div>
 </div>
 
@@ -840,8 +1053,7 @@
     <div class="modal-content">
         <span class="close-modal" onclick="closeModal('avisoPrivacidadeModal')">&times;</span>
         <h4>Aviso de Privacidade</h4>
-        <p>Respeitamos a sua privacidade. Todos os dados fornecidos no formulário de contato ou via WhatsApp são utilizados estritamente para a prestação e orçamento dos serviços solicitados.</p>
-        <p>Não compartilhamos, vendemos ou cedemos suas informações pessoais a terceiros sem seu consentimento prévio, em total observância à LGPD (Lei Geral de Proteção de Dados).</p>
+        <p>Respeitamos a sua privacidade. Todos os dados fornecidos no formulário de contato ou via WhatsApp são utilizados estritamente para a prestação dos serviços solicitados.</p>
     </div>
 </div>
 
@@ -849,8 +1061,7 @@
     <div class="modal-content">
         <span class="close-modal" onclick="closeModal('canalEticaModal')">&times;</span>
         <h4>Canal de Ética</h4>
-        <p>Mantemos o compromisso com a integridade, transparência e profissionalismo no atendimento.</p>
-        <p>Para dúvidas éticas, sugestões ou comunicações referentes à conduta dos serviços prestados, envie um e-mail diretamente para o nosso contato cadastrado com o assunto <em>"Canal de Ética"</em>.</p>
+        <p>Para dúvidas éticas ou sugestões referentes aos serviços prestados, envie um e-mail com o assunto <em>"Canal de Ética"</em>.</p>
     </div>
 </div>
 
@@ -858,8 +1069,7 @@
     <div class="modal-content">
         <span class="close-modal" onclick="closeModal('centralPrivacidadeModal')">&times;</span>
         <h4>Central de Privacidade</h4>
-        <p>Aqui você pode exercer seus direitos referentes aos seus dados pessoais de acordo com a LGPD.</p>
-        <p>Você tem o direito de solicitar a confirmação, o acesso, a correção ou a exclusão completa dos seus dados de nossos registros de atendimento. Entre em contato conosco via e-mail.</p>
+        <p>Você tem o direito de solicitar a confirmação, o acesso ou a exclusão de seus dados pessoais em nossos registros.</p>
     </div>
 </div>
 
@@ -867,8 +1077,7 @@
     <div class="modal-content">
         <span class="close-modal" onclick="closeModal('cookiesModal')">&times;</span>
         <h4>Preferência de Cookies</h4>
-        <p>Este site é minimalista e utiliza apenas <strong>cookies essenciais</strong> para o correto funcionamento das navegações da página e modais.</p>
-        <p>Não utilizamos cookies de terceiros para rastreamento publicitário. Ao continuar navegando, você concorda com o uso de cookies de desempenho e navegação básica.</p>
+        <p>Este site utiliza apenas cookies essenciais para o correto funcionamento das navegações da página e modais.</p>
     </div>
 </div>
 
@@ -885,6 +1094,67 @@
         <p>&copy; <span id="displayFooterName">Carla Miter Tech</span> - Todos os direitos reservados.</p>
     </div>
 </footer>
+
+<!-- ======================================================
+     ASSISTENTE DA CARLAMITERTECH (SISTEMA COM SUA FOTO)
+     ====================================================== -->
+<div id="bot-container">
+    <div class="bot-card" id="botCard">
+        <div class="bot-header">
+            <div class="bot-title-group">
+                <div class="bot-status-dot"></div>
+                <div class="bot-title-text">
+                    <h4>Assistente da Carlamitertech</h4>
+                    <span>Assistente Virtual IA</span>
+                </div>
+            </div>
+            <button class="bot-close-btn" onclick="toggleBotCard()">&times;</button>
+        </div>
+
+        <!-- Palco da Foto Real -->
+        <div class="bot-avatar-stage">
+            <img id="botAvatarImage" src="Foto.jpg" alt="Carla Miter">
+        </div>
+
+        <!-- Conteúdo do Chat -->
+        <div class="bot-body">
+            <div class="bot-speech-bubble" id="botBubbleText">
+                Olá! Sou a Assistente da Carlamitertech. Como posso ajudar você a transformar suas ideias em tecnologia hoje?
+            </div>
+
+            <div class="bot-options-grid" id="botOptions">
+                <button class="bot-option-btn" onclick="askBot('servicos')">
+                    💻 Quais serviços são oferecidos? <span>&rsaquo;</span>
+                </button>
+                <button class="bot-option-btn" onclick="askBot('produtos')">
+                    🚀 Conhecer Produtos & Apps <span>&rsaquo;</span>
+                </button>
+                <button class="bot-option-btn" onclick="askBot('mei')">
+                    📝 Abertura de MEI <span>&rsaquo;</span>
+                </button>
+                <button class="bot-option-btn" onclick="askBot('orcamento')">
+                    💬 Como solicitar um orçamento? <span>&rsaquo;</span>
+                </button>
+                <button class="bot-option-btn" onclick="askBot('contato')">
+                    📞 Canais de Contato Direto <span>&rsaquo;</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Controles -->
+        <div class="bot-controls">
+            <button class="bot-voice-toggle active" id="btnVoiceToggle" onclick="toggleVoice()">
+                🔊 Voz: Ativada
+            </button>
+        </div>
+    </div>
+
+    <!-- Botão Flutuante -->
+    <div class="bot-launcher" onclick="toggleBotCard()" title="Falar com a Assistente da Carlamitertech">
+        <div class="bot-launcher-badge"></div>
+        <img id="botLauncherImage" src="Foto.jpg" alt="Carla Miter">
+    </div>
+</div>
 
 <script>
     /* --- DADOS ESTÁTICOS DO SITE --- */
@@ -950,6 +1220,8 @@
         document.getElementById('displayHeroSubtitle').innerText = siteInfo.subtitle;
         document.getElementById('displayVisionText').innerText = siteInfo.vision;
         document.getElementById('displayProfilePhoto').src = siteInfo.photo;
+        document.getElementById('botAvatarImage').src = siteInfo.photo;
+        document.getElementById('botLauncherImage').src = siteInfo.photo;
         document.getElementById('displayContactPhone').innerText = siteInfo.phoneFormatted;
         document.getElementById('displayContactEmail').innerText = siteInfo.email;
         document.getElementById('displayContactInsta').innerText = siteInfo.insta;
@@ -981,11 +1253,8 @@
         mediaList.forEach(m => {
             const card = document.createElement('div');
             card.className = 'media-card';
-
-            let contentHtml = `<img src="${m.url}" alt="${m.title}" loading="lazy">`;
-
             card.innerHTML = `
-                <div class="media-container">${contentHtml}</div>
+                <div class="media-container"><img src="${m.url}" alt="${m.title}" loading="lazy"></div>
                 <div class="media-info">
                     <h4>${m.title}</h4>
                     ${m.desc ? `<p>${m.desc}</p>` : ''}
@@ -1008,14 +1277,7 @@
             const card = document.createElement('div');
             card.className = 'product-card';
             
-            let imageHtml = '';
-            if (p.image) {
-                imageHtml = `
-                    <div class="product-image-container">
-                        <img src="${p.image}" alt="${p.title}" loading="lazy">
-                    </div>
-                `;
-            }
+            let imageHtml = p.image ? `<div class="product-image-container"><img src="${p.image}" alt="${p.title}" loading="lazy"></div>` : '';
 
             card.innerHTML = `
                 <div>
@@ -1033,7 +1295,6 @@
         });
     }
 
-    /* --- INTEGRAÇÃO COM API DE CHECKOUT --- */
     async function iniciarCompra(productId) {
         try {
             const product = products.find(p => p.id === productId);
@@ -1041,35 +1302,91 @@
             window.open(`https://wa.me/${siteInfo.phone}?text=${msg}`, '_blank');
         } catch (error) {
             console.error('Erro ao processar checkout:', error);
-            alert('Não foi possível iniciar o checkout no momento. Tente novamente mais tarde.');
+            alert('Não foi possível iniciar o checkout no momento.');
         }
     }
 
-    /* --- CONTROLES DE MODAL --- */
-    function openModal(id) {
-        document.getElementById(id).style.display = 'flex';
-    }
-
-    function closeModal(id) {
-        document.getElementById(id).style.display = 'none';
-    }
+    function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+    function closeModal(id) { document.getElementById(id).style.display = 'none'; }
 
     function copyPixKey() {
         const pixKey = document.getElementById('pixKey').innerText;
         navigator.clipboard.writeText(pixKey).then(() => {
             alert('Chave PIX copiada para a área de transferência!');
-        }).catch(() => {
-            alert('Chave PIX: ' + pixKey);
-        });
+        }).catch(() => alert('Chave PIX: ' + pixKey));
     }
 
     window.onclick = function(event) {
-        if (event.target.classList.contains('modal')) {
-            event.target.style.display = "none";
+        if (event.target.classList.contains('modal')) event.target.style.display = "none";
+    }
+
+    /* --- LÓGICA DE FALA DA ASSISTENTE (MANTENDO FALAS ROBÓTICAS E VOZ) --- */
+    let voiceEnabled = true;
+
+    const botAnswers = {
+        servicos: "Oferecemos desenvolvimento de sistemas web sob medida, cartões de visita digitais em PWA, digitalização e automação de planilhas e assessoria completa para abertura de MEI!",
+        produtos: "Temos soluções incríveis prontas: o App Táxify para gestão de corridas, a Agenda Diária PWA 100% offline, o Aplicativo de Timbre para Baixistas e Páginas de Bio para redes sociais.",
+        mei: "A Carla é especialista em Abertura de MEI para autônomos e microempreendedores, cuidando de toda a estrutura para formalizar seu negócio sem complicações.",
+        orcamento: "Para solicitar um orçamento personalizado, basta clicar no botão 'Solicitar Orçamento' na seção de Serviços ou enviar uma mensagem direta para o WhatsApp (31) 97564-4571.",
+        contato: "Você pode falar conosco pelo WhatsApp (31) 97564-4571, por e-mail no carlamiter038@gmail.com ou no Instagram @carlamiter."
+    };
+
+    function toggleBotCard() {
+        const card = document.getElementById('botCard');
+        if (card.style.display === 'none' || card.style.display === '') {
+            card.style.display = 'flex';
+            speakText("Olá! Sou a Assistente da Carlamitertech. Como posso ajudar você hoje?");
+        } else {
+            card.style.display = 'none';
+            stopSpeech();
         }
     }
 
-    // Inicialização do site
+    function toggleVoice() {
+        voiceEnabled = !voiceEnabled;
+        const btn = document.getElementById('btnVoiceToggle');
+        if (voiceEnabled) {
+            btn.classList.add('active');
+            btn.innerHTML = '🔊 Voz: Ativada';
+        } else {
+            btn.classList.remove('active');
+            btn.innerHTML = '🔇 Voz: Desativada';
+            stopSpeech();
+        }
+    }
+
+    function askBot(key) {
+        const answerText = botAnswers[key];
+        if (!answerText) return;
+
+        document.getElementById('botBubbleText').innerText = answerText;
+        speakText(answerText);
+    }
+
+    function speakText(text) {
+        stopSpeech();
+        if (!voiceEnabled || !('speechSynthesis' in window)) return;
+
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'pt-BR';
+        utterance.rate = 1.05;
+        utterance.pitch = 1.15;
+
+        const voices = window.speechSynthesis.getVoices();
+        const ptVoice = voices.find(v => v.lang.includes('pt') && (v.name.includes('Luciana') || v.name.includes('Maria') || v.name.includes('Google') || v.name.includes('Female')));
+        if (ptVoice) utterance.voice = ptVoice;
+
+        window.speechSynthesis.speak(utterance);
+    }
+
+    function stopSpeech() {
+        if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    }
+
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
         renderSiteInfo();
         renderMedia();
@@ -1078,4 +1395,3 @@
 </script>
 </body>
 </html>
-

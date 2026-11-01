@@ -1112,7 +1112,7 @@
 </footer>
 
 <!-- ======================================================
-     ASSISTENTE DA CARLAMITERTECH (FOTO + MÚSICA "QUEM É ESSE?")
+     ASSISTENTE DA CARLAMITERTECH (FOTO + MÚSICA DE FUNDO DISCRETA)
      ====================================================== -->
 <div id="bot-container">
     <div class="bot-card" id="botCard">
@@ -1135,7 +1135,7 @@
         <!-- Conteúdo do Chat -->
         <div class="bot-body">
             <div class="bot-speech-bubble" id="botBubbleText">
-                Olá! Sou a assistente virtual da Carlamitertech. Ouvindo a melodia inspiradora de "Quem É Esse?", escolha abaixo o assunto desejado:
+                Olá! Sou a assistente virtual da Carlamitertech. Como posso ajudar você a transformar suas ideias em tecnologia hoje?
             </div>
 
             <div class="bot-options-grid" id="botOptions">
@@ -1170,13 +1170,13 @@
             </div>
         </div>
 
-        <!-- Controles (Voz e Trilha Sonora "Quem É Esse?") -->
+        <!-- Controles (Voz e Música de Fundo) -->
         <div class="bot-controls">
             <button class="bot-voice-toggle active" id="btnVoiceToggle" onclick="toggleVoice()">
                 🔊 Voz: Ativada
             </button>
             <button class="bot-music-toggle active" id="btnMusicToggle" onclick="toggleMusic()">
-                🎶 Música: Quem É Esse?
+                🎶 Som: Ligado
             </button>
         </div>
     </div>
@@ -1352,7 +1352,7 @@
         if (event.target.classList.contains('modal')) event.target.style.display = "none";
     }
 
-    /* --- LÓGICA DE FALA, RESPOSTAS E TRILHA "QUEM É ESSE?" --- */
+    /* --- LÓGICA DE FALA, RESPOSTAS E TRILHA DE FUNDO DISCRETA --- */
     let voiceEnabled = true;
     let musicEnabled = true;
     let audioCtx = null;
@@ -1371,7 +1371,7 @@
         const card = document.getElementById('botCard');
         if (card.style.display === 'none' || card.style.display === '') {
             card.style.display = 'flex';
-            speakText("Olá! Sou a assistente virtual da Carlamitertech. Acompanhe nosso atendimento ao som de Quem É Esse, e escolha o assunto desejado.");
+            speakText("Olá! Sou a assistente virtual da Carlamitertech. Como posso ajudar você a transformar suas ideias em tecnologia hoje?");
             if (musicEnabled) startWorshipMelody();
         } else {
             card.style.display = 'none';
@@ -1398,16 +1398,16 @@
         const btn = document.getElementById('btnMusicToggle');
         if (musicEnabled) {
             btn.classList.add('active');
-            btn.innerHTML = '🎶 Música: Quem É Esse?';
+            btn.innerHTML = '🎶 Som: Ligado';
             startWorshipMelody();
         } else {
             btn.classList.remove('active');
-            btn.innerHTML = '🔇 Música: Silenciada';
+            btn.innerHTML = '🔇 Som: Desligado';
             stopWorshipMelody();
         }
     }
 
-    /* Gerador de Trilha Sonora Suave Inspirada em "Quem É Esse?" */
+    /* Gerador de Trilha Sonora de Fundo Suave */
     function startWorshipMelody() {
         if (melodyInterval) return;
         try {
@@ -1415,8 +1415,7 @@
             if (!audioCtx) audioCtx = new AudioContext();
             if (audioCtx.state === 'suspended') audioCtx.resume();
 
-            // Notas suaves e reverentes estilo teclado worship
-            const worshipChord = [220.00, 261.63, 329.63, 392.00, 440.00]; // A3, C4, E4, G4, A4
+            const worshipChord = [220.00, 261.63, 329.63, 392.00, 440.00];
             let noteIdx = 0;
 
             melodyInterval = setInterval(() => {
@@ -1426,13 +1425,12 @@
                     const osc = audioCtx.createOscillator();
                     const gain = audioCtx.createGain();
 
-                    osc.type = 'sine'; // Som puro e suave tipo órgão/teclado de igreja
+                    osc.type = 'sine';
                     osc.frequency.setValueAtTime(worshipChord[noteIdx % worshipChord.length], t);
                     noteIdx++;
 
-                    // Envelope longo e suave (fade in e fade out relaxante)
                     gain.gain.setValueAtTime(0.001, t);
-                    gain.gain.linearRampToValueAtTime(0.035, t + 1.2);
+                    gain.gain.linearRampToValueAtTime(0.03, t + 1.2);
                     gain.gain.exponentialRampToValueAtTime(0.0001, t + 4.5);
 
                     osc.connect(gain);

@@ -1112,7 +1112,7 @@
 </footer>
 
 <!-- ======================================================
-     ASSISTENTE DA CARLAMITERTECH (FOTO + MÚSICA DE ESPERA)
+     ASSISTENTE DA CARLAMITERTECH (FOTO + MÚSICA RÍTMICA E AGITADA)
      ====================================================== -->
 <div id="bot-container">
     <div class="bot-card" id="botCard">
@@ -1135,7 +1135,7 @@
         <!-- Conteúdo do Chat -->
         <div class="bot-body">
             <div class="bot-speech-bubble" id="botBubbleText">
-                Olá! Sou a assistente virtual da Carlamitertech. Enquanto aguarda, aproveite nossa trilha sonora suave e escolha abaixo o assunto desejado:
+                Olá! Sou a assistente virtual da Carlamitertech. Curta nossa batida eletrônica animada enquanto explora nossos serviços abaixo:
             </div>
 
             <div class="bot-options-grid" id="botOptions">
@@ -1170,13 +1170,13 @@
             </div>
         </div>
 
-        <!-- Controles (Voz e Música de Espera) -->
+        <!-- Controles (Voz e Batida Animada) -->
         <div class="bot-controls">
             <button class="bot-voice-toggle active" id="btnVoiceToggle" onclick="toggleVoice()">
                 🔊 Voz: Ativada
             </button>
             <button class="bot-music-toggle active" id="btnMusicToggle" onclick="toggleMusic()">
-                🎵 Música: Tocando
+                🎧 Ritmo: Animado
             </button>
         </div>
     </div>
@@ -1352,11 +1352,11 @@
         if (event.target.classList.contains('modal')) event.target.style.display = "none";
     }
 
-    /* --- LÓGICA DE FALA, RESPOSTAS E MÚSICA DE ESPERA --- */
+    /* --- LÓGICA DE FALA, RESPOSTAS E RITMO ELETRÔNICO AGITADO --- */
     let voiceEnabled = true;
     let musicEnabled = true;
     let audioCtx = null;
-    let musicInterval = null;
+    let beatInterval = null;
 
     const botAnswers = {
         servicos: "Oferecemos desenvolvimento de sistemas web sob medida, cartões de visita digitais em PWA, digitalização e automação de planilhas e assessoria completa para abertura de MEI!",
@@ -1371,12 +1371,12 @@
         const card = document.getElementById('botCard');
         if (card.style.display === 'none' || card.style.display === '') {
             card.style.display = 'flex';
-            speakText("Olá! Sou a assistente virtual da Carlamitertech. Enquanto aguarda, aproveite nossa trilha sonora suave e escolha o assunto desejado.");
-            if (musicEnabled) startAmbientMusic();
+            speakText("Olá! Sou a assistente virtual da Carlamitertech. Curta nossa batida eletrônica animada enquanto explora nossos serviços.");
+            if (musicEnabled) startUpbeatRhythm();
         } else {
             card.style.display = 'none';
             stopSpeech();
-            stopAmbientMusic();
+            stopUpbeatRhythm();
         }
     }
 
@@ -1398,60 +1398,62 @@
         const btn = document.getElementById('btnMusicToggle');
         if (musicEnabled) {
             btn.classList.add('active');
-            btn.innerHTML = '🎵 Música: Tocando';
-            startAmbientMusic();
+            btn.innerHTML = '🎧 Ritmo: Animado';
+            startUpbeatRhythm();
         } else {
             btn.classList.remove('active');
-            btn.innerHTML = '🔇 Música: Silenciada';
-            stopAmbientMusic();
+            btn.innerHTML = '🔇 Ritmo: Silenciado';
+            stopUpbeatRhythm();
         }
     }
 
-    /* Gerador de Música de Espera Suave com Web Audio API */
-    function startAmbientMusic() {
-        if (musicInterval) return;
+    /* Gerador de Batida Eletrônica / Synth-Pop Rítmica e Dinâmica */
+    function startUpbeatRhythm() {
+        if (beatInterval) return;
         try {
             const AudioContext = window.AudioContext || window.webkitAudioContext;
             if (!audioCtx) audioCtx = new AudioContext();
             if (audioCtx.state === 'suspended') audioCtx.resume();
 
-            // Notas suaves de acorde (frequências em Hz para uma melodia de espera relaxante)
-            const chord = [261.63, 329.63, 392.00, 523.25]; // C E G C
-            let index = 0;
+            // Notas de uma escala alegre/tech para arpejo animado
+            const notes = [329.63, 392.00, 440.00, 523.25, 659.25]; // E4, G4, A4, C5, E5
+            let step = 0;
 
-            musicInterval = setInterval(() => {
+            beatInterval = setInterval(() => {
                 if (!musicEnabled) return;
                 try {
+                    const now = audioCtx.currentTime;
                     const osc = audioCtx.createOscillator();
                     const gain = audioCtx.createGain();
 
-                    osc.type = 'sine'; // Som suave e puro tipo flauta/teclado
-                    osc.frequency.setValueAtTime(chord[index], audioCtx.currentTime);
-                    index = (index + 1) % chord.length;
+                    // Onda saw/square suave para dar um toque estilo sintetizador moderno
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(notes[step % notes.length], now);
+                    step++;
 
-                    // Envelope de volume suave (fade in / fade out)
-                    gain.gain.setValueAtTime(0.01, audioCtx.currentTime);
-                    gain.gain.exponentialRampToValueAtTime(0.04, audioCtx.currentTime + 0.8);
-                    gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 3.2);
+                    // Envelope de batida rítmica rápida
+                    gain.gain.setValueAtTime(0.001, now);
+                    gain.gain.linearRampToValueAtTime(0.025, now + 0.05);
+                    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.35);
 
                     osc.connect(gain);
                     gain.connect(audioCtx.destination);
 
-                    osc.start();
-                    osc.stop(audioCtx.currentTime + 3.3);
+                    osc.start(now);
+                    osc.stop(now + 0.4);
                 } catch (e) {
                     console.error(e);
                 }
-            }, 2500);
+            }, 280); // Velocidade de andamento rítmico otimizada
         } catch (e) {
             console.log("Áudio ambiente não suportado automaticamente.");
         }
     }
 
-    function stopAmbientMusic() {
-        if (musicInterval) {
-            clearInterval(musicInterval);
-            musicInterval = null;
+    function stopUpbeatRhythm() {
+        if (beatInterval) {
+            clearInterval(beatInterval);
+            beatInterval = null;
         }
     }
 

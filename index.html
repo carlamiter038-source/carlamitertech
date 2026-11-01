@@ -1107,7 +1107,7 @@
 </footer>
 
 <!-- ======================================================
-     ASSISTENTE DE ATENDIMENTO VIRTUAL (ATUALIZADO COM SEU TEXTO)
+     ASSISTENTE DE ATENDIMENTO VIRTUAL (ATUALIZADO)
      ====================================================== -->
 <div id="bot-container">
     <div class="bot-card" id="botCard">
@@ -1130,8 +1130,9 @@
         <!-- Conteúdo do Chat -->
         <div class="bot-body" id="botBody">
             <div class="bot-speech-bubble" id="botBubbleText">
-                Prezado(a), agradecemos pelo contato com a nossa assessoria em Sistemas e Soluções Empresariais. 💼<br><br>
-                Para direcionarmos o seu atendimento ao especialista responsável, por favor, informe o seu nome completo:
+                Olá, seja bem-vindo(a). Agradecemos o seu contato.<br><br>
+                Para que possamos compreender a complexidade do seu projeto e fornecer uma estimativa precisa, por favor, responda brevemente:<br><br>
+                <strong>1. Qual é o nome da sua empresa ou do seu projeto?</strong>
             </div>
         </div>
 
@@ -1324,16 +1325,13 @@
 
     /* --- LÓGICA DO ATENDIMENTO VIRTUAL --- */
     let voiceEnabled = true;
-    let botState = 0; // 0: nome, 1: empresa, 2: escopo de interesse
-    let clientData = { name: '', company: '', interest: '' };
+    let botState = 0; // 0: projeto/empresa, 1: necessidade (tecnologia/MEI), 2: desafio/objetivo
+    let clientData = { company: '', need: '', goal: '' };
 
     function toggleBotCard() {
         const card = document.getElementById('botCard');
         if (card.style.display === 'none' || card.style.display === '') {
             card.style.display = 'flex';
-            if (botState === 0) {
-                speakText("Prezado(a), agradecemos pelo contato com a nossa assessoria em Sistemas e Soluções Empresariais. Para direcionarmos o seu atendimento ao especialista responsável, por favor, informe o seu nome completo.");
-            }
         } else {
             card.style.display = 'none';
             stopSpeech();
@@ -1393,17 +1391,17 @@
         }
 
         if (botState === 0) {
-            clientData.name = val;
-            botState = 1;
-            responseText = `Obrigado, ${clientData.name}.<br><br>Qual é o nome da empresa (se houver)?`;
-        } else if (botState === 1) {
             clientData.company = val;
+            botState = 1;
+            responseText = `Perfeito! Entendido.<br><br><strong>2. Você necessita de uma solução em tecnologia (Site/App) ou suporte na área fiscal (Abertura de MEI)?</strong>`;
+        } else if (botState === 1) {
+            clientData.need = val;
             botState = 2;
-            responseText = `Perfeito!<br><br>Qual é o seu escopo de interesse principal?<br>[1] Desenvolvimento de Website Institucional<br>[2] Engenharia e Criação de Aplicativo (App)<br>[3] Consultoria para Abertura e Regularização de MEI<br><br><em>Indique a opção desejada ou faça um breve resumo da sua necessidade.</em>`;
+            responseText = `Ótimo.<br><br><strong>3. Qual é o principal desafio ou objetivo que você busca resolver neste momento?</strong>`;
         } else if (botState === 2) {
-            clientData.interest = val;
+            clientData.goal = val;
             botState = 3;
-            responseText = `O especialista técnico poderá analisar o seu caso em detalhes na nossa reunião. Vamos agendar?<br><br><a href="https://wa.me/${siteInfo.phone}?text=${encodeURIComponent('Olá, meu nome é ' + clientData.name + ' da empresa ' + clientData.company + '. Meu interesse é: ' + clientData.interest)}" target="_blank" style="color: var(--cyber-cyan); font-weight: 700; text-decoration: underline;">Clique aqui para confirmar no WhatsApp &rsaquo;</a>`;
+            responseText = `Com base nas suas respostas, nosso especialista fará uma análise preliminar antes de iniciar a conversa. Aguardamos o seu retorno.<br><br><a href="https://wa.me/${siteInfo.phone}?text=${encodeURIComponent('Olá! Empresa/Projeto: ' + clientData.company + ' | Necessidade: ' + clientData.need + ' | Objetivo: ' + clientData.goal)}" target="_blank" style="color: var(--cyber-cyan); font-weight: 700; text-decoration: underline;">Clique aqui para enviar os dados no WhatsApp &rsaquo;</a>`;
         } else {
             responseText = "Seus dados já foram registrados. Para prosseguir, clique no link do WhatsApp acima e fale diretamente com o especialista!";
         }

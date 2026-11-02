@@ -1117,7 +1117,7 @@
             <button class="bot-close-btn" onclick="toggleBotCard()">&times;</button>
         </div>
 
-        <!-- Palco da Foto Real (Atualizado com a nova imagem) -->
+        <!-- Palco da Foto Real -->
         <div class="bot-avatar-stage">
             <img id="botAvatarImage" src="1000385669.jpg" alt="Assistente Virtual">
         </div>
@@ -1145,7 +1145,7 @@
         </div>
     </div>
 
-    <!-- Botão Flutuante (Atualizado com a nova imagem) -->
+    <!-- Botão Flutuante -->
     <div class="bot-launcher" onclick="toggleBotCard()" title="Falar com a Assistente de TI">
         <div class="bot-launcher-badge"></div>
         <img id="botLauncherImage" src="1000385669.jpg" alt="Assistente Virtual">
@@ -1206,6 +1206,22 @@
             category: "Link/Bio",
             desc: "Página leve, ultra rápida e responsiva para colocar na bio do seu Instagram com todos os seus contatos.",
             price: "A partir de R$ 39,90"
+        },
+        {
+            id: 5,
+            title: "Hub USB-C 8 em 1 Multifuncional",
+            category: "Acessórios / Adaptadores",
+            desc: "Adaptador Hub Tipo C com HDMI 4K, porta Ethernet RJ45 Gigabit, USB-C PD (87W), USB 3.0/2.0 e leitores de cartão SD e TF (Micro SD).",
+            price: "Consulte / Adquira",
+            image: "1000386604.jpg"
+        },
+        {
+            id: 6,
+            title: "Hub Adaptador Tipo C 3 em 1",
+            category: "Acessórios / Adaptadores",
+            desc: "Adaptador multifuncional compacto Tipo C com portas para cartão SD, cartão TF/Micro SD e entrada USB para Pendrive/Dispositivos.",
+            price: "Consulte / Adquira",
+            image: "1000386603.jpg"
         }
     ];
 
@@ -1226,7 +1242,7 @@
         const rawPhone = siteInfo.phone;
         document.getElementById('displayContactPhoneLink').href = `tel:${rawPhone}`;
         document.getElementById('displayContactEmailLink').href = `mailto:${siteInfo.email}`;
-  
+ 
         const cleanInsta = siteInfo.insta.replace('@', '');
         const instaUrl = `https://www.instagram.com/${cleanInsta}`;
         document.getElementById('displayContactInstaLink').href = instaUrl;
@@ -1270,7 +1286,7 @@
         products.forEach(p => {
             const card = document.createElement('div');
             card.className = 'product-card';
-            
+           
             let imageHtml = p.image ? `<div class="product-image-container"><img src="${p.image}" alt="${p.title}" loading="lazy"></div>` : '';
 
             card.innerHTML = `
@@ -1434,4 +1450,4 @@
     });
 </script>
 </body>
-</html>
+</html> 

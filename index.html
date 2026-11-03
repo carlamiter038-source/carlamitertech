@@ -909,7 +909,7 @@
 
         <a href="#" target="_blank" class="nav-insta" id="displayNavInstaLink">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-            <span id="displayNavInsta">@carlamiter</span>
+            <span id="displayNavInsta">@carlamitertech</span>
         </a>
     </nav>
 </header>
@@ -1010,7 +1010,7 @@
         </div>
         <div class="contact-item">
             <span>Instagram</span>
-            <a href="#" target="_blank" id="displayContactInstaLink"><span id="displayContactInsta">@carlamiter</span></a>
+            <a href="#" target="_blank" id="displayContactInstaLink"><span id="displayContactInsta">@carlamitertech</span></a>
         </div>
     </div>
 </section>
@@ -1160,7 +1160,7 @@
         phone: "5531975644571",
         phoneFormatted: "(31) 97564-4571",
         email: "carlamiter038@gmail.com",
-        insta: "@carlamiter",
+        insta: "@carlamitertech", // Handle atualizado
         pix: "carlapemi@outlook.com",
         vision: "focada em criar soluções simples, acessíveis e funcionais para o dia a dia. Estou sempre em constante atualização e acompanhando as tendências da área de tecnologia.",
         photo: "Foto.jpg"
@@ -1243,7 +1243,7 @@
         document.getElementById('displayContactPhoneLink').href = `tel:${rawPhone}`;
         document.getElementById('displayContactEmailLink').href = `mailto:${siteInfo.email}`;
  
-        // Correção do link do Instagram gerando a URL correta com base no handle limpo
+        // Monta o link do Instagram removendo o @ de forma segura
         const cleanInsta = siteInfo.insta.replace('@', '').trim();
         const instaUrl = `https://www.instagram.com/${cleanInsta}`;
         document.getElementById('displayContactInstaLink').href = instaUrl;

@@ -907,7 +907,7 @@
         <a href="#contato">Contato</a>
         <a href="#institucional">Institucional</a>
 
-        <a href="https://www.instagram.com/carlamiter" target="_blank" class="nav-insta" id="displayNavInstaLink">
+        <a href="#" target="_blank" class="nav-insta" id="displayNavInstaLink">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             <span id="displayNavInsta">@carlamiter</span>
         </a>
@@ -1243,7 +1243,8 @@
         document.getElementById('displayContactPhoneLink').href = `tel:${rawPhone}`;
         document.getElementById('displayContactEmailLink').href = `mailto:${siteInfo.email}`;
  
-        const cleanInsta = siteInfo.insta.replace('@', '');
+        // Correção do link do Instagram gerando a URL correta com base no handle limpo
+        const cleanInsta = siteInfo.insta.replace('@', '').trim();
         const instaUrl = `https://www.instagram.com/${cleanInsta}`;
         document.getElementById('displayContactInstaLink').href = instaUrl;
         document.getElementById('displayNavInstaLink').href = instaUrl;
@@ -1450,4 +1451,5 @@
     });
 </script>
 </body>
-</html> 
+</html>
+

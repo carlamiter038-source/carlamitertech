@@ -1188,15 +1188,15 @@
         }
     ];
 
-    /* --- LISTA DE PRODUTOS INTEGRADA COM BLING ---
-       - blingId: Código de cadastro/referência no ERP Bling
-       - blingUrl: Cole a URL completa do Link de Pagamento do Bling quando quiser checkout direto
+    /* --- LISTA DE PRODUTOS CONFIGURADA COM MERCADO PAGO & BLING (206370442) ---
+       - mercadoPagoUrl: Cole aqui o link de pagamento gerado no Mercado Pago para cada produto.
+         Se deixar vazio (""), o botão continuará chamando o WhatsApp com o código Bling.
     */
     const products = [
         {
             id: 1,
             blingId: "206370442",
-            blingUrl: "", // Cole aqui a URL completa do Link de Pagamento do Bling (se houver)
+            mercadoPagoUrl: "", // Exemplo: "https://mpago.la/1234567" (Cole seu link do Mercado Pago aqui)
             title: "App Web Táxify",
             category: "App Web",
             desc: "Aplicativo web voltado para motoristas gerenciarem corridas, despesas e faturamento diário de forma simples e direta no celular.",
@@ -1205,7 +1205,7 @@
         {
             id: 2,
             blingId: "",
-            blingUrl: "",
+            mercadoPagoUrl: "",
             title: "Agenda Diária [PWA]",
             category: "Agenda / PWA",
             desc: "Organização pessoal simples, completa e 100% offline. Módulos interativos de tarefas, calendário, finanças, metas e hábitos no seu celular.",
@@ -1215,7 +1215,7 @@
         {
             id: 3,
             blingId: "",
-            blingUrl: "",
+            mercadoPagoUrl: "",
             title: "Aplicativo de Timbre para Baixista",
             category: "Áudio / PWA",
             desc: "Modelador de baixo, DSP engine, afinador, analisador VU & Clip e plataforma de produção e monitoramento ao vivo para baixistas.",
@@ -1225,7 +1225,7 @@
         {
             id: 4,
             blingId: "",
-            blingUrl: "",
+            mercadoPagoUrl: "",
             title: "Página de Links / Bio Personalizada",
             category: "Link/Bio",
             desc: "Página leve, ultra rápida e responsiva para colocar na bio do seu Instagram com todos os seus contatos.",
@@ -1234,7 +1234,7 @@
         {
             id: 5,
             blingId: "",
-            blingUrl: "",
+            mercadoPagoUrl: "",
             title: "Hub USB-C 8 em 1 Multifuncional",
             category: "Acessórios / Adaptadores",
             desc: "Adaptador Hub Tipo C com HDMI 4K, porta Ethernet RJ45 Gigabit, USB-C PD (87W), USB 3.0/2.0 e leitores de cartão SD e TF (Micro SD).",
@@ -1244,7 +1244,7 @@
         {
             id: 6,
             blingId: "",
-            blingUrl: "",
+            mercadoPagoUrl: "",
             title: "Hub Adaptador Tipo C 3 em 1",
             category: "Acessórios / Adaptadores",
             desc: "Adaptador multifuncional compacto Tipo C com portas para cartão SD, cartão TF/Micro SD e entrada USB para Pendrive/Dispositivos.",
@@ -1340,13 +1340,13 @@
             const product = products.find(p => p.id === productId);
             if (!product) return;
 
-            // 1. Se houver Link de Pagamento do Bling configurado, abre o checkout diretamente
-            if (product.blingUrl && product.blingUrl.trim() !== "") {
-                window.open(product.blingUrl.trim(), '_blank');
+            // Se houver um link do Mercado Pago configurado, abre o checkout de forma automática
+            if (product.mercadoPagoUrl && product.mercadoPagoUrl.trim() !== "") {
+                window.open(product.mercadoPagoUrl.trim(), '_blank');
                 return;
             }
 
-            // 2. Caso contrário, envia pelo WhatsApp incluindo o código Bling como referência do pedido
+            // Fallback: Se não tiver o link do MP preenchido ainda, envia para o WhatsApp com o código Bling
             const ref = product.blingId ? ` [Cód. Bling: ${product.blingId}]` : '';
             const msg = encodeURIComponent(`Olá! Tenho interesse em adquirir o produto: ${product.title}${ref} (${product.price}).`);
             window.open(`https://wa.me/${siteInfo.phone}?text=${msg}`, '_blank');
@@ -1459,7 +1459,7 @@
         speakText(responseText.replace(/<[^>]*>?/gm, ''));
     }
 
-    function speakText(text) {
+    function speakTest(text) {
         stopSpeech();
         if (!voiceEnabled || !('speechSynthesis' in window)) return;
 
@@ -1491,3 +1491,4 @@
 </script>
 </body>
 </html>
+

@@ -354,7 +354,19 @@
         font-family: 'Playfair Display', serif;
         font-size: 1.35rem;
         color: var(--text-primary);
-        margin-bottom: 10px;
+        margin-bottom: 6px;
+    }
+
+    .product-bling-ref {
+        display: inline-block;
+        font-size: 0.75rem;
+        color: #a8b5c2;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        padding: 2px 8px;
+        border-radius: 6px;
+        margin-bottom: 12px;
+        font-family: monospace;
     }
 
     .product-card p {
@@ -1160,7 +1172,7 @@
         phone: "5531975644571",
         phoneFormatted: "(31) 97564-4571",
         email: "carlamiter038@gmail.com",
-        insta: "@carlamitertech", // Handle atualizado
+        insta: "@carlamitertech",
         pix: "carlapemi@outlook.com",
         vision: "focada em criar soluções simples, acessíveis e funcionais para o dia a dia. Estou sempre em constante atualização e acompanhando as tendências da área de tecnologia.",
         photo: "Foto.jpg"
@@ -1176,9 +1188,15 @@
         }
     ];
 
+    /* --- LISTA DE PRODUTOS INTEGRADA COM BLING ---
+       - blingId: Código de cadastro/referência no ERP Bling
+       - blingUrl: Cole a URL completa do Link de Pagamento do Bling quando quiser checkout direto
+    */
     const products = [
         {
             id: 1,
+            blingId: "206370442",
+            blingUrl: "", // Cole aqui a URL completa do Link de Pagamento do Bling (se houver)
             title: "App Web Táxify",
             category: "App Web",
             desc: "Aplicativo web voltado para motoristas gerenciarem corridas, despesas e faturamento diário de forma simples e direta no celular.",
@@ -1186,6 +1204,8 @@
         },
         {
             id: 2,
+            blingId: "",
+            blingUrl: "",
             title: "Agenda Diária [PWA]",
             category: "Agenda / PWA",
             desc: "Organização pessoal simples, completa e 100% offline. Módulos interativos de tarefas, calendário, finanças, metas e hábitos no seu celular.",
@@ -1194,6 +1214,8 @@
         },
         {
             id: 3,
+            blingId: "",
+            blingUrl: "",
             title: "Aplicativo de Timbre para Baixista",
             category: "Áudio / PWA",
             desc: "Modelador de baixo, DSP engine, afinador, analisador VU & Clip e plataforma de produção e monitoramento ao vivo para baixistas.",
@@ -1202,6 +1224,8 @@
         },
         {
             id: 4,
+            blingId: "",
+            blingUrl: "",
             title: "Página de Links / Bio Personalizada",
             category: "Link/Bio",
             desc: "Página leve, ultra rápida e responsiva para colocar na bio do seu Instagram com todos os seus contatos.",
@@ -1209,6 +1233,8 @@
         },
         {
             id: 5,
+            blingId: "",
+            blingUrl: "",
             title: "Hub USB-C 8 em 1 Multifuncional",
             category: "Acessórios / Adaptadores",
             desc: "Adaptador Hub Tipo C com HDMI 4K, porta Ethernet RJ45 Gigabit, USB-C PD (87W), USB 3.0/2.0 e leitores de cartão SD e TF (Micro SD).",
@@ -1217,6 +1243,8 @@
         },
         {
             id: 6,
+            blingId: "",
+            blingUrl: "",
             title: "Hub Adaptador Tipo C 3 em 1",
             category: "Acessórios / Adaptadores",
             desc: "Adaptador multifuncional compacto Tipo C com portas para cartão SD, cartão TF/Micro SD e entrada USB para Pendrive/Dispositivos.",
@@ -1243,7 +1271,6 @@
         document.getElementById('displayContactPhoneLink').href = `tel:${rawPhone}`;
         document.getElementById('displayContactEmailLink').href = `mailto:${siteInfo.email}`;
  
-        // Monta o link do Instagram removendo o @ de forma segura
         const cleanInsta = siteInfo.insta.replace('@', '').trim();
         const instaUrl = `https://www.instagram.com/${cleanInsta}`;
         document.getElementById('displayContactInstaLink').href = instaUrl;
@@ -1288,13 +1315,15 @@
             const card = document.createElement('div');
             card.className = 'product-card';
            
-            let imageHtml = p.image ? `<div class="product-image-container"><img src="${p.image}" alt="${p.title}" loading="lazy"></div>` : '';
+            const imageHtml = p.image ? `<div class="product-image-container"><img src="${p.image}" alt="${p.title}" loading="lazy"></div>` : '';
+            const refBadge = p.blingId ? `<span class="product-bling-ref">Cód. Bling: ${p.blingId}</span>` : '';
 
             card.innerHTML = `
                 <div>
                     ${imageHtml}
                     <span class="product-badge">${p.category}</span>
                     <h3>${p.title}</h3>
+                    ${refBadge}
                     <p>${p.desc}</p>
                 </div>
                 <div>
@@ -1309,7 +1338,17 @@
     async function iniciarCompra(productId) {
         try {
             const product = products.find(p => p.id === productId);
-            const msg = encodeURIComponent(`Olá! Tenho interesse em adquirir o produto: ${product.title} (${product.price}).`);
+            if (!product) return;
+
+            // 1. Se houver Link de Pagamento do Bling configurado, abre o checkout diretamente
+            if (product.blingUrl && product.blingUrl.trim() !== "") {
+                window.open(product.blingUrl.trim(), '_blank');
+                return;
+            }
+
+            // 2. Caso contrário, envia pelo WhatsApp incluindo o código Bling como referência do pedido
+            const ref = product.blingId ? ` [Cód. Bling: ${product.blingId}]` : '';
+            const msg = encodeURIComponent(`Olá! Tenho interesse em adquirir o produto: ${product.title}${ref} (${product.price}).`);
             window.open(`https://wa.me/${siteInfo.phone}?text=${msg}`, '_blank');
         } catch (error) {
             console.error('Erro ao processar checkout:', error);

@@ -1160,7 +1160,7 @@
         phone: "5531975644571",
         phoneFormatted: "(31) 97564-4571",
         email: "carlamiter038@gmail.com",
-        insta: "@carlamitertech", // Handle atualizado
+        insta: "@carlamitertech",
         pix: "carlapemi@outlook.com",
         vision: "focada em criar soluções simples, acessíveis e funcionais para o dia a dia. Estou sempre em constante atualização e acompanhando as tendências da área de tecnologia.",
         photo: "Foto.jpg"
@@ -1212,8 +1212,9 @@
             title: "Plannerpets",
             category: "plannerpets",
             desc: "Organização e cuidado.",
-            price: "$29,90 / Adquira",
-            image: "1000386604.jpg"
+            price: "R$ 29,90 / Adquira",
+            image: "1000386604.jpg",
+            link: "https://pay.hotmart.com/P108668391J"
         },
         {
             id: 6,
@@ -1243,7 +1244,6 @@
         document.getElementById('displayContactPhoneLink').href = `tel:${rawPhone}`;
         document.getElementById('displayContactEmailLink').href = `mailto:${siteInfo.email}`;
  
-        // Monta o link do Instagram removendo o @ de forma segura
         const cleanInsta = siteInfo.insta.replace('@', '').trim();
         const instaUrl = `https://www.instagram.com/${cleanInsta}`;
         document.getElementById('displayContactInstaLink').href = instaUrl;
@@ -1309,6 +1309,10 @@
     async function iniciarCompra(productId) {
         try {
             const product = products.find(p => p.id === productId);
+            if (product.link) {
+                window.open(product.link, '_blank');
+                return;
+            }
             const msg = encodeURIComponent(`Olá! Tenho interesse em adquirir o produto: ${product.title} (${product.price}).`);
             window.open(`https://wa.me/${siteInfo.phone}?text=${msg}`, '_blank');
         } catch (error) {
@@ -1452,3 +1456,4 @@
 </script>
 </body>
 </html>
+
